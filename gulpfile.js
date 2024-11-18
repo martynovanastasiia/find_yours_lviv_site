@@ -33,8 +33,7 @@ gulp.task('sass', gulp.series('minify-css','minify-scss'));
 
 // Minify JS
 gulp.task('uglify', () => {
-    return src('app/js/*.js')
-        //.pipe(concat('all.min.js'))
+    return src('app/js/**/*.js')
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(dest('dist/js'))

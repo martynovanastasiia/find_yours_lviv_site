@@ -23,7 +23,6 @@
   "homepage": "https://github.com/FindYoursLviv/find_yours_lviv_site#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
-    "bootstrap": "^5.3.3",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.6",
     "gulp": "^5.0.0",
@@ -34,7 +33,6 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
-    "jquery": "^3.7.1",
     "postcss": "^8.4.45",
     "sass": "^1.80.4"
   },
