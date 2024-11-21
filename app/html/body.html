@@ -1,62 +1,150 @@
 <header class="navbar navbar-expand  flex-column flex-md-row bd-navbar">
 
-          <a class="navbar-brand " href="" aria-label="Знайди своє">
-        <img width="210" height="85"  src="images/logo.svg" alt="Логотип"></a>
+    <a class="navbar-brand " href="" aria-label="Знайди своє">
+        <img width="210" height="85" src="../images/logo.svg" alt="Логотип"></a>
 
-<p>eds</p>
+    <p>eds</p>
 </header>
 <!--   class="navbar-brand mr-0 mr-md-2" -->
 <!--<img  class="width:"30" height:"30"" src="images/лого темне.svg">-->
 <div class="container-fluid">
-        <section>
+    <!-- секція з фотографією лініями і назвою закладу-->
+    <section>
+        <div class="row">
 
-                <div class="row">
-                        <div class="col-xl-4 photo-rest"> <!-- фотографія закладу-->
-                                <img src="images/image 60.svg" alt="Фото з закладу">
-                        </div>
-                        <div class="col-xl-1 col-0"></div>
-                        <!--               назва локації та закладу-->
-                        <div class="col-xl-7 name-rest">
-                                <h1>Перша львівська грильова ресторація м'яса та справедливости</h1>
-                                <h5 class="place">Центр міста</h5></div>
-                        <!--тут ше має бути кнопка але я хз як її реалізувати (саме шоб воно якось заносилось в базу)-->
+
+            <div class="col-xl-4 photo-rest"> <!-- фотографія закладу-->
+                <img src="https://i.imgur.com/WgUFwwl.jpg" alt="Фото з закладу">
+            </div>
+            <div class="col-xl-1 col-0"></div>
+            <!-- назва локації та закладу-->
+            <div class="col-xl-7 name-rest">
+                <h1>Перша львівська грильова ресторація м'яса та справедливости</h1>
+                <h5 class="place">Центр міста</h5></div>
+            <!--тут ше має бути кнопка але я хз як її реалізувати (саме шоб воно якось заносилось в базу)-->
+        </div>
+        <!--ну оцей текст під питанням, потрібно ще подумати як адаптивніше це зробити       -->
+        <div class="text-wrapper">
+            <h3 class="text-outline">ШЕ ПРО ЗАКЛАД<span class="text-fill" style="color: black"> ДІЗНАЙСЯ БІЛЬШЕ ПРО ЗАКЛАД </span>ДІЗНАЙСЯ
+                БІЛЬШЕ ПРО ЗАКЛАД</h3>
+        </div>
+        <!--<div class="long-text">-->
+        <!--    <img  class="find-more" src="../icons/long-text.svg" alt="">-->
+        <!--    <img class="find-more second-img" src="../icons/dark-text.svg" alt="">-->
+        <!--</div>-->
+    </section>
+    <!--секція з інформацією про заклад в 6-ти прямокутниках  -->
+    <section>
+        <div class="row g-5" style="justify-content:center; gap:16vw ">
+            <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                <div>
+                    <div class="icon">
+                        <img src="../icons/meal-1.svg" class="icons" alt="pet " >
+                    </div>
+                    <div class="info-rest">
+                        <h4>Тип закладу</h4>
+                        <p>Стейк-хаус</p>
+                    </div>
                 </div>
-                <div class="text-wrapper">
-                        <h3 class="text-outline">ШЕ ПРО ЗАКЛАД<span class="text-fill" style="color: black"> ДІЗНАЙСЯ БІЛЬШЕ ПРО ЗАКЛАД </span>ДІЗНАЙСЯ БІЛЬШЕ ПРО ЗАКЛАД</h3>
+
+            </div>
+            <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+                <div>
+                    <div class="icon">
+                        <img src="../icons/pet.svg" class="icons" alt="pet " >
+                    </div>
+                    <div class="info-rest">
+                        <h4> Пет-френдлі?</h4>
+                        <p>Так</p>
+                    </div>
                 </div>
 
-</section>
 
-        <section>
-<!--                <div class="container">-->
-                        <!-- Перший рядок space-between-->
-                        <div class="row g-5 " style="justify-content:center; gap:10rem ">
-                                <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                        <div class="icon">
-                                            <img src="../icons/meal-1.svg"  alt="pet " width="75" height="70">
-                                        </div>
-                                </div>
-                                <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                    <img src="../icons/pet.svg"  alt="pet " width="75" height="70">
-                                </div>
-                                <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                        <div class="p-2">Элемент сетки 3</div>
-                                </div>
-                        </div>
+            </div>
+            <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                <div>
+                    <div class="icon">
+                        <img src="../icons/clock 1.svg" class="icons" alt="pet " >
+                    </div>
+                    <div class="info-rest">
+                        <h4 class="time">години роботи</h4>
+                        <p>пн. – пт. 12:00 – 22:30 <br>
 
-                        <!-- Другий рядок -->
-                <div class="row g-5" style="justify-content:center; gap:10rem ">
-                                <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                        <div class="p-2">Элемент сетки 4</div>
-                                </div>
-                                <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                        <div class="p-2">Элемент сетки 5</div>
-                                </div>
-                                <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                        <div class="p-2">Элемент сетки 6</div>
-                                </div>
-                        </div>
-<!--                </div>-->
-        </section>
-<h1>fpfffffffffffffff</h1>
+                            сб. – нд. 11:00 – 22:30</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Другий рядок -->
+        <div class="row g-5" style="justify-content:center; gap:16vw ">
+            <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                <div>
+                    <div class="icon">
+                        <img src="../icons/chef.svg" class="icons" alt="pet ">
+                    </div>
+                    <div class="info-rest">
+                        <h4>Кухня</h4>
+                        <p>американська</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rect-full col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                <div>
+                    <div class="icon">
+                        <img src="../icons/wallet.svg" class="icons" alt="pet " >
+                    </div>
+                    <div class="info-rest">
+                        <h4>Бюджет</h4>
+                        <p>Середній</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rect col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                <div>
+                    <div class="icon">
+                        <img src="../icons/geo-alt-fill.svg" class="icons" alt="pet ">
+                    </div>
+                    <div class="info-rest">
+                        <h4>локація</h4>
+                        <p>вул. валова 20</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--                </div>-->
+    </section>
+    <!--  опис закладу i зв'язок  -->
+    <section>
+        <div class="row">
+            <div class="col-12 mx-auto col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                <h6 class="rest-description">Перша львівська грильова ресторація м'яса та справедливости —
+                    унікальний заклад, що спеціалізується на приготуванні страв на грилі
+                    та пропонує вишукані м’ясні делікатеси. Меню ресторану включає різноманітні
+                    види м'яса, приготованого на відкритому вогні, а також смачні гарніри та закуски. Інтер'єр
+                    оформлений у стильному дизайні, що створює особливо загадкову атмосферу для відвідувачів. Заклад
+                    також відомий своєю концепцією «справедливості»: кат та різні пам'ятки тортур не на жарт здивують
+                    вас. Це місце ідеально підходить для м'ясоїдів,
+                    які цінують смачну їжу та незабутню атмосферу.
+                </h6>
+            </div>
+            <div class="row">
+                <div class="rest-contact p-0 mx-auto d-flex col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10"
+                     style="justify-content: space-between">
+                    <div class="col-5 connect">
+                        <h5 class="connect-1">Зв’язок із закладом</h5>
+                        <a href="tel:(050) 43 02 826">(050) 43 02 826</a>
+                    </div>
+                    <div class="col-6 connect text-end">
+                        <h5  class="connect-1">Детальніше про заклад</h5>
+                        <a class="text-end" href="https://www.fest.lviv.ua/uk/restaurants/meatandjustice/" target="_blank">www.fest.lviv.ua/uk/restaurants/meatandjustice/ </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
 </div>
