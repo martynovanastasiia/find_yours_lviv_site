@@ -1,0 +1,94 @@
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+letter-spacing: 3px;
+}
+  .navbar {
+    background: linear-gradient(to right,#000000,#465F3C);
+    width: 100%;
+    margin: 0;
+
+    //position: relative;
+    //display: -webkit-box;
+    //display: -ms-flexbox;
+    display: flex;
+    //-ms-flex-wrap: wrap;
+    //flex-wrap: wrap;
+    //-webkit-box-align: center;
+    //-ms-flex-align: center;
+    //align-items: center;
+    //-webkit-box-pack: justify;
+    //-ms-flex-pack: justify;
+    //justify-content: space-between;
+    //padding: .5rem 1rem;
+    //background: linear-gradient(to right,#000000,#465F3C);
+    //width: 100%;
+    //margin: 0;
+  }
+  .row{
+    margin: 0 !important;
+  }
+  .container-fluid{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+  }
+  .photo-rest {
+    margin: 0;
+    padding: 0;
+    //min-width: 25rem ;
+    height: 26rem ;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-bottom-right-radius: 5rem;
+      object-fit: cover; /* обрізає зображення, щоб воно заповнювало контейнер */
+     //vertical-align: top; /* вирівнювання зображення */
+     margin: -1rem; /* тут -1 бо ця фотка мала якісь власні незрозумілі відстуи які я(Ілона) не могла забрати бо то
+     ні падінги ні марджини а непонятно шо*/
+    }
+  }
+  .name-rest {
+    margin-top: 20vh;
+
+    h1 {
+      @include font-montserrat-bold;
+    }
+
+    h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      margin-top: 1rem;
+    }
+  }
+.text-outline{
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.text-wrapper{
+ margin-top:13vh;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3px black;
+}
+.rect {
+  border: 3px solid #4c7839;
+  border-radius: 35px;
+  width: 14rem !important;
+  height: 16rem !important;
+}
+
+.rect-full {
+  @extend .rect;
+  background: rgba(76, 120, 57, 0.42);
+}
+.icon{
+
+}
