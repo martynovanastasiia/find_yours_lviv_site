@@ -1,7 +1,7 @@
 @mixin font-montserrat-bold {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 700;
-  font-size: 2vw;
+  font-size: 3vw;
   letter-spacing: 3px;
 }
 
@@ -12,6 +12,11 @@
 }
 
 $green-main: #4c7839;
+
+.logo {
+  width: 10vw;
+  height: 5vw;
+}
 
 .navbar {
   background: linear-gradient(to right, #000000, #465F3C);
@@ -38,16 +43,8 @@ $green-main: #4c7839;
 
 .row {
   margin: 0 !important;
-
 }
 
-//.beginning-page{
-//  background-image: url('../icons/two-lines.svg');
-//  min-width: 1200px;
-//  min-height: 100vh;
-//  width: 100%;
-//  height: 100%;
-//}
 .container-fluid {
   margin: 0;
   padding: 0;
@@ -67,13 +64,12 @@ $green-main: #4c7839;
     height: 100%;
     border-bottom-right-radius: 5vw;
     object-fit: cover; /* обрізає зображення, щоб воно заповнювало контейнер */
-    //vertical-align: top; /* вирівнювання зображення */
 
   }
 }
 
 .name-rest {
-  margin-top: 20vh;
+  margin-top: 18vh;
 
   h1 {
     @include font-montserrat-bold;
@@ -86,6 +82,10 @@ $green-main: #4c7839;
   }
 }
 
+.place {
+  font-size: 1.7vw;
+}
+
 .text-outline {
   font-size: 2vw;
   font-weight: bold;
@@ -94,7 +94,7 @@ $green-main: #4c7839;
 
 .text-wrapper {
   width: 100%;
-  margin-top: 10vh;
+  margin: 10vh 0 5vh;
   white-space: nowrap;
   font-family: 'Montserrat', sans-serif;
   color: white;
@@ -104,7 +104,12 @@ $green-main: #4c7839;
 
 .icons {
   width: 4.5vw;
-  height: 4.5vw;
+ // height: 9vh;
+}
+
+.g-5 {
+  justify-content: center;
+  gap: 16vw;
 }
 
 .rect {
@@ -178,4 +183,52 @@ $green-main: #4c7839;
   }
 }
 
+.scroller {
+  margin-top: 4vh;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 6vw;
+  padding: 2vw 5vw 2vw 5vw;
+  scroll-behavior: smooth;
+
+}
+
+.scroller::-webkit-scrollbar {
+  height: 1.5vh; /* Висота смуги прокрутки */
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background: rgba(51, 62, 46, 0.8); /* Колір "повзунка" */
+  border-radius: 1vh;
+}
+
+.scroller::-webkit-scrollbar-thumb:hover {
+  background: #333E2E; /* Колір "повзунка" при наведенні */
+}
+
+.scroller::-webkit-scrollbar-track {
+  margin-top: 2vh; /* Для плавного скролінгу */
+  background: rgba(76, 120, 57, 0.42); //доріжка
+}
+
+.scroller img {
+  width: 25vw;
+  height: 30vw;
+  object-fit: cover;
+  flex-shrink: 0; /* Забезпечує, що зображення не стискаються */
+  border-radius: 5vh; /* Округлення кутів (опційно) */
+}
+
+footer {
+  .footer-icon {
+  // height: 17vw;
+    width: 100vw;
+  }
+
+  .footer-rect2 {
+    color: red;
+    background: #000000;
+  }
+}
 
