@@ -8,7 +8,6 @@
 @mixin font-dela {
   font-family: "Dela Gothic One", sans-serif;
   font-weight: 400;
-
 }
 
 $green-main: #4c7839;
@@ -16,6 +15,13 @@ $green-main: #4c7839;
 .logo {
   width: 10vw;
   height: 5vw;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Відключає прокрутку на всій сторінці */
+  height: 100%;
 }
 
 .navbar {
@@ -48,9 +54,21 @@ $green-main: #4c7839;
 .container-fluid {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-
+  //overflow-x: hidden;
+  background-image: url("../icons/top-line1.svg"), url("../icons/long-line.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+  background-position: top -15vw center, bottom -10vw center; /* Перша лінія - в верхній частині, друга - в нижній */
+  //height: 50vh;
+  width: 100%;
 }
+
+//.container-fluid {
+//  margin: 0;
+//  padding: 0;
+//  overflow-x: hidden;
+//
+//}
 
 .photo-rest {
   margin: 0;
@@ -104,7 +122,7 @@ $green-main: #4c7839;
 
 .icons {
   width: 4.5vw;
- // height: 9vh;
+  // height: 9vh;
 }
 
 .g-5 {
@@ -160,7 +178,7 @@ $green-main: #4c7839;
 }
 
 .rest-contact {
-  margin-top: 13vh;
+  margin: 3% 0;
   color: black;
 
   a {
@@ -221,14 +239,148 @@ $green-main: #4c7839;
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Вирівнює по центру по горизонталі
+  justify-content: center; // Вирівнює по центру по вертикалі
+  //margin: 2vw 5vw;
   .footer-icon {
-  // height: 17vw;
-    width: 100vw;
+    // height: 17vw;
+    width: 100%;
   }
 
   .footer-rect2 {
-    color: red;
+    padding: 3vw 2vw;
+    display: flex;
+    align-items: center;
+    text-align: center; // Розміщує колонки рівномірно
+    width: 100%; // Заповнює всю доступну ширину
+    color: white;
     background: #000000;
+  }
+
+  //початок опису лівої частини футера
+  .left-part-footer {
+    padding: 0;
+    justify-items: center;
+
+    .footer-logo {
+      width: 20vw;
+      //height: 18vh;
+     //width: 100%;
+     // max-width: 60vw;
+    }
+
+
+    .team {
+      margin-top: 1.5vw;
+      display: flex;
+      white-space: nowrap;
+      //text-align: center;
+      justify-content: space-between;
+
+      h6 {
+        font-size: 1.5vw;
+        font-family: 'Montserrat Alternates', sans-serif;
+      }
+    }
+  }
+
+  //кінець опису лівої частини футера
+
+  //початок опису центральної частини футера
+  .center-part-footer,
+  .right-part-footer{
+    justify-items: center;
+
+    .all-nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-title-footer {
+      font-family: 'Dela Gothic One', sans-serif;
+      font-size: 1.3vw;
+      letter-spacing: 0.3vw;
+      margin-bottom: 5vh;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-bottom {
+      display: flex;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 1vw;
+      margin: 0.5vw;
+    }
+
   }
 }
 
+//footer {
+//  .footer-icon {
+//    // height: 17vw;
+//    width: 100vw;
+//  }
+//
+//  .footer-rect2 {
+//    color: red;
+//    background: #000000;
+//  }
+//}
+//
+//footer {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center; // Вирівнює по центру по горизонталі
+//  justify-content: center; // Вирівнює по центру по вертикалі
+//
+//  .footer-icon {
+//    width: 100vw; // Можна змінити, щоб відповідало дизайну
+//  }
+//
+//  .footer-rect2 {
+//    display: flex;
+//    justify-content: space-between; // Розміщує колонки рівномірно
+//    width: 100%; // Заповнює всю доступну ширину
+//    color: white;
+//    background: #000000;
+//
+//    .col-4 {
+//      display: flex;
+//      justify-content: center;
+//      align-items: center;
+//      text-align: center; // Вирівнює текст по центру в кожній колонці
+//    }
+//
+//    .footer-logo {
+//      display: flex;
+//      flex-direction: column; // Це дозволяє розмістити картинку і текст один під одним
+//      justify-content: center;
+//      align-items: center;
+//      padding: 4vh;
+//
+//      img {
+//        max-width: 100%; // Ширина картинки буде 100% доступного простору
+//        height: auto; // Зберігає пропорції картинки
+//      }
+//
+//      .team {
+//        margin-top: 1rem; // Додає відступ між картинкою і текстом
+//        font-family: 'Montserrat Alternates', sans-serif;
+//        font-size: 1vw;
+//        text-align: center; // Вирівнює текст по центру
+//
+//      }
+//
+//      span {
+//        display: inline-block;
+//        text-align: right;
+//      }
+//    }
+//  }
+//}
