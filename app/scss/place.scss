@@ -16,6 +16,7 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
   background-position: top 66vw center;
+  width: 100%;
 }
 
 .svg {
@@ -116,7 +117,6 @@ body {
   color: #000000;
   text-decoration: none;
 }
-
 
 .description p {
   @include mixins.font-montserrat-regular;
