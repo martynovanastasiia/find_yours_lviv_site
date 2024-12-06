@@ -32,17 +32,11 @@ gulp.task('minify-css', () => {
 gulp.task('sass', gulp.series('minify-css','minify-scss'));
 
 // Minify JS
-// gulp.task('uglify', () => {
-//     return src('app/js/**/*.js')
-//         .pipe(rename({suffix: '.min'}))
-//         .pipe(uglify())
-//         .pipe(dest('dist/js'))
-// });
 gulp.task('uglify', () => {
-    return gulp.src('app/js/images.js') // Ensure the correct file name
+    return src('app/js/**/*.js')
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(dest('dist/js'))
 });
 
 
