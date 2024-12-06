@@ -1,0 +1,15 @@
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: 0.2vw;
+}
+
+@mixin font-montserrat-regular {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5vw;
+  letter-spacing: 0.02vw;
+  color: #000;
+  font-weight: 400;
+  line-height: 150%;
+}

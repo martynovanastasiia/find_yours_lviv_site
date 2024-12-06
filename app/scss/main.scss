@@ -1,394 +1,395 @@
-@mixin font-montserrat-bold {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 700;
-  font-size: 3vw;
-  letter-spacing: 0.2vw;
-}
+//@mixin font-montserrat-bold {
+//  font-family: 'Montserrat Alternates', sans-serif;
+//  font-weight: 700;
+//  font-size: 3vw;
+//  letter-spacing: 0.2vw;
+//}
+//
+//@mixin font-montserrat-regular {
+//  font-family: Montserrat, sans-serif;
+//  font-size: 1.5vw;
+//  letter-spacing: 0.02vw;
+//  color: #000;
+//  font-weight: 400;
+//  line-height: 150%;
+//}
 
-@mixin font-montserrat-regular {
-  font-family: Montserrat, sans-serif;
-  font-size: 1.5vw;
-  letter-spacing: 0.02vw;
-  color: #000;
-  font-weight: 400;
-  line-height: 150%;
-}
+//.logo {
+//  width: 11vw;
+//  height: 5vw;
+//}
 
-.logo {
-  width: 11vw;
-  height: 5vw;
-}
+//body {
+//  margin: 0;
+//  padding: 0;
+//  overflow-x: hidden; /* Відключає прокрутку на всій сторінці */
+//  height: 100%;
+//  width: 100%;
+//  scroll-behavior: smooth;
+//}
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Відключає прокрутку на всій сторінці */
-  height: 100%;
-  width: 100%;
-  scroll-behavior: smooth;
-}
+//
+//.navbar {
+//  background: linear-gradient(to right, #000000, #465F3C);
+//  width: 100%;
+//  margin: 0;
+//  position: fixed;
+//  gap: 3vw;
+//  padding: 1vw 2vw;
+//  overflow: hidden;
+//  z-index: 1000;
+//  //display: flex;
+//  .search-bar {
+//    display: flex;
+//    border: 3px solid #fff;
+//    border-radius: 50px;
+//    width: 20vw;
+//    height: 10vw;
+//    max-height: 3rem;
+//    //height:100%;
+//    background: rgba(217, 217, 217, 0.2);
+//    justify-content: center;
+//    padding: 0 1vw 0 1vw;
+//
+//    input:focus {
+//      //outline: none; /* Прибирає стандартний контур при фокусуванні */
+//      color: white; /* Колір тексту під час введення */
+//    }
+//
+//    input {
+//      background: transparent;
+//      //flex: 1;
+//      width: 100%;
+//      height: 100%;
+//      border: none;
+//      outline: none;
+//    }
+//
+//    button {
+//      border: none;
+//      background: transparent; /* Щоб кнопка не мала фону */
+//      padding: 0;
+//      cursor: pointer;
+//    }
+//
+//    button img {
+//      width: 2vw;
+//      color: #fff;
+//      //line-height: 0;
+//    }
+//  }
+//
+//  ::placeholder {
+//    font-family: 'Montserrat Alternates', sans-serif;
+//    font-size: 1.3vw;
+//  }
+//
+//  ul {
+//    white-space: nowrap;
+//    gap: 8vw;
+//    width: 100%;
+//    list-style-type: none;
+//    display: flex;
+//    color: white;
+//    padding: 0;
+//    justify-content: center;
+//    //align-content: center;
+//    margin: 0;
+//  }
+//
+//  ul li a {
+//    color: white;
+//    text-decoration: none;
+//    font-family: 'Montserrat', sans-serif;
+//    font-size: 1.3vw;
+//    font-weight: 600;
+//  }
+//
+//  .active {
+//    border-radius: 60px/60px;
+//    color: #000;
+//    padding: 1vw 1.5vw;
+//    background-color: white;
+//  }
+//
+//  ul li a:hover {
+//    text-shadow: 1px 1px 3px black;
+//  }
+//}
+//
+//.container-fluid {
+//  padding: 6vw 0;
+//  margin: 0;
+//  background-image: url("../icons/long-line.svg");
+//  background-repeat: no-repeat, no-repeat;
+//  background-size: contain, contain;
+//  background-position: top 66vw center;
+//}
+//
+//.svg {
+//  position: absolute;
+//  top: 0;
+//}
+//
+//.clipped {
+//  width: 100%;
+//  //height: auto;
+//  -webkit-clip-path: url(#my-clip-path);
+//  //clip-path: url(#my-clip-path);
+//}
+//
+//.row {
+//  margin: 0 !important;
+//}
+//
+//.responsive-img {
+//  width: 100%;
+//  height: auto;
+//  object-fit: cover;
+//  //object-position: center;
+//}
+//
+//.button {
+//  top: 51vw;
+//  right: 0.25vw;
+//  display: inline-flex;
+//  align-items: center;
+//  position: absolute;
+//  justify-content: space-between;
+//  padding: 0.5vw 1.5vw;
+//  background-color: #4c7839;
+//  color: #ffffff;
+//  font-size: 1vw;
+//  font-family: 'Montserrat', sans-serif;
+//  font-weight: 400;
+//  line-height: 200%;
+//  letter-spacing: 0.2vw;
+//  border-radius: 2vw;
+//  box-shadow: 0 0.25vw 0.9375vw rgba(0, 0, 0, 0.25);
+//  cursor: pointer;
+//
+//  .text {
+//    margin-right: 0.5vw;
+//  }
+//
+//  .icon {
+//    font-size: 1.2vw;
+//  }
+//
+//  img {
+//    height: auto;
+//    width: 1.5vw;
+//  }
+//}
+//
+//.button:hover {
+//  background-color: #1f3017;
+//}
+//
+//.header1 {
+//  text-align: center;
+//
+//  h1 {
+//    @include font-montserrat-bold;
+//    margin: 0;
+//    padding: 2vw 0;
+//  }
+//}
+//
+//.place-info {
+//  margin: 1vw 5vw;
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  flex-wrap: wrap;
+//  gap: 10vw;
+//}
+//
+//.info-item {
+//  display: flex;
+//  align-items: center;
+//  gap: 1vw;
+//}
+//
+//.info-item img {
+//  height: auto;
+//  width: 4vw;
+//}
+//
+//.info-item span {
+//  @include font-montserrat-regular;
+//}
+//
+//.info-item a {
+//  color: #000000;
+//  text-decoration: none;
+//}
+//
+//
+//.description p {
+//  @include font-montserrat-regular;
+//  margin: 3vw 5vw;
+//  text-align: justify;
+//  padding: 0;
+//}
+//.map {
+//  margin: 4vw 0;
+//}
 
-
-.navbar {
-  background: linear-gradient(to right, #000000, #465F3C);
-  width: 100%;
-  margin: 0;
-  position: fixed;
-  gap: 3vw;
-  padding: 1vw 2vw;
-  overflow: hidden;
-  z-index: 1000;
-  //display: flex;
-  .search-bar {
-    display: flex;
-    border: 3px solid #fff;
-    border-radius: 50px;
-    width: 20vw;
-    height: 10vw;
-    max-height: 3rem;
-    //height:100%;
-    background: rgba(217, 217, 217, 0.2);
-    justify-content: center;
-    padding: 0 1vw 0 1vw;
-
-    input:focus {
-      //outline: none; /* Прибирає стандартний контур при фокусуванні */
-      color: white; /* Колір тексту під час введення */
-    }
-
-    input {
-      background: transparent;
-      //flex: 1;
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-    }
-
-    button {
-      border: none;
-      background: transparent; /* Щоб кнопка не мала фону */
-      padding: 0;
-      cursor: pointer;
-    }
-
-    button img {
-      width: 2vw;
-      color: #fff;
-      //line-height: 0;
-    }
-  }
-
-  ::placeholder {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 1.3vw;
-  }
-
-  ul {
-    white-space: nowrap;
-    gap: 8vw;
-    width: 100%;
-    list-style-type: none;
-    display: flex;
-    color: white;
-    padding: 0;
-    justify-content: center;
-    //align-content: center;
-    margin: 0;
-  }
-
-  ul li a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3vw;
-    font-weight: 600;
-  }
-
-  .active {
-    border-radius: 60px/60px;
-    color: #000;
-    padding: 1vw 1.5vw;
-    background-color: white;
-  }
-
-  ul li a:hover {
-    text-shadow: 1px 1px 3px black;
-  }
-}
-
-.container-fluid {
-  padding: 6vw 0;
-  margin: 0;
-  background-image: url("../icons/long-line.svg");
-  background-repeat: no-repeat, no-repeat;
-  background-size: contain, contain;
-  background-position: top 66vw center;
-}
-
-.svg {
-  position: absolute;
-  top: 0;
-}
-
-.clipped {
-  width: 100%;
-  //height: auto;
-  -webkit-clip-path: url(#my-clip-path);
-  //clip-path: url(#my-clip-path);
-}
-
-.row {
-  margin: 0 !important;
-}
-
-.responsive-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  //object-position: center;
-}
-
-.button {
-  top: 51vw;
-  right: 0.25vw;
-  display: inline-flex;
-  align-items: center;
-  position: absolute;
-  justify-content: space-between;
-  padding: 0.5vw 1.5vw;
-  background-color: #4c7839;
-  color: #ffffff;
-  font-size: 1vw;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  line-height: 200%;
-  letter-spacing: 0.2vw;
-  border-radius: 2vw;
-  box-shadow: 0 0.25vw 0.9375vw rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-
-  .text {
-    margin-right: 0.5vw;
-  }
-
-  .icon {
-    font-size: 1.2vw;
-  }
-
-  img {
-    height: auto;
-    width: 1.5vw;
-  }
-}
-
-.button:hover {
-  background-color: #1f3017;
-}
-
-.header1 {
-  text-align: center;
-
-  h1 {
-    @include font-montserrat-bold;
-    margin: 0;
-    padding: 2vw 0;
-  }
-}
-
-.place-info {
-  margin: 1vw 5vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10vw;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1vw;
-}
-
-.info-item img {
-  height: auto;
-  width: 4vw;
-}
-
-.info-item span {
-  @include font-montserrat-regular;
-}
-
-.info-item a {
-  color: #000000;
-  text-decoration: none;
-}
-
-
-.description p {
-  @include font-montserrat-regular;
-  margin: 3vw 5vw;
-  text-align: justify;
-  padding: 0;
-}
-
-.scroller {
-  margin-top: 4vh;
-  display: flex;
-  overflow: hidden; /* Hide the scrollbar */
-  //overflow-x: auto; /* Hide the scrollbar */
-  white-space: nowrap;
-  gap: 6vw;
-  padding: 2vw 5vw;
-  scroll-behavior: smooth;
-}
-
-.scroller img {
-  width: 25vw;
-  height: 30vw;
-  object-fit: cover;
-  flex-shrink: 0;
-  border-radius: 5vh;
-}
-
-/* Center the container */
-.arrows {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1vw 1.5vw;
-
-}
-
-/* Style the arrow buttons */
-.arrow-button {
-  width: 7vw;
-  height: 7vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 0.016vw solid #000;
-  border-radius: 2vw;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  //background-color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-}
-
-.arrow-button svg {
-  height: auto;
-  width: 3vw;
-  transition: transform 0.3s ease;
-}
-
-.arrow-button:hover {
-  background-color: #000;
-  stroke: #fff;
-  fill: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  transform: scale(1.1);
-}
-
-.arrow-button:hover img {
-  transform: translateX(2px);
-}
-
-.arrow-button svg path {
-  fill: #000; /* Початковий колір */
-  transition: transform 0.3s ease;
-}
-
-.arrow-button:hover svg path {
-  fill: #fff; /* Колір заливки при наведенні */
-}
-
-.map {
-  margin: 4vw 0;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center; // Вирівнює по центру по горизонталі
-  justify-content: center; // Вирівнює по центру по вертикалі
-  //margin: 2vw 5vw;
-  .footer-icon {
-    // height: 17vw;
-    width: 100%;
-  }
-
-  .footer-rect2 {
-    padding: 3vw 2vw;
-    display: flex;
-    align-items: center;
-    text-align: center; // Розміщує колонки рівномірно
-    width: 100%; // Заповнює всю доступну ширину
-    color: white;
-    background: #000000;
-  }
-
-  //початок опису лівої частини футера
-  .left-part-footer {
-    padding: 0;
-    justify-items: center;
-
-    .footer-logo {
-      width: 20vw;
-      //height: 18vh;
-      //width: 100%;
-      // max-width: 60vw;
-    }
+//.scroller {
+//  margin-top: 4vh;
+//  display: flex;
+//  overflow: hidden; /* Hide the scrollbar */
+//  //overflow-x: auto; /* Hide the scrollbar */
+//  white-space: nowrap;
+//  gap: 6vw;
+//  padding: 2vw 5vw;
+//  scroll-behavior: smooth;
+//}
+//
+//.scroller img {
+//  width: 25vw;
+//  height: 30vw;
+//  object-fit: cover;
+//  flex-shrink: 0;
+//  border-radius: 5vh;
+//}
+//
+///* Center the container */
+//.arrows {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  margin: 1vw 1.5vw;
+//
+//}
+//
+///* Style the arrow buttons */
+//.arrow-button {
+//  width: 7vw;
+//  height: 7vw;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  border: 0.016vw solid #000;
+//  border-radius: 2vw;
+//  cursor: pointer;
+//  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//  background-color: #fff;
+//  //background-color: rgba(255, 255, 255, 0.8);
+//  transition: all 0.3s ease;
+//}
+//
+//.arrow-button svg {
+//  height: auto;
+//  width: 3vw;
+//  transition: transform 0.3s ease;
+//}
+//
+//.arrow-button:hover {
+//  background-color: #000;
+//  stroke: #fff;
+//  fill: #fff;
+//  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+//  transform: scale(1.1);
+//}
+//
+//.arrow-button:hover img {
+//  transform: translateX(2px);
+//}
+//
+//.arrow-button svg path {
+//  fill: #000; /* Початковий колір */
+//  transition: transform 0.3s ease;
+//}
+//
+//.arrow-button:hover svg path {
+//  fill: #fff; /* Колір заливки при наведенні */
+//}
 
 
-    .team {
-      margin-top: 1.5vw;
-      display: flex;
-      white-space: nowrap;
-      //text-align: center;
-      justify-content: space-between;
 
-      h6 {
-        font-size: 1.5vw;
-        font-family: 'Montserrat Alternates', sans-serif;
-      }
-    }
-  }
-
-  //кінець опису лівої частини футера
-
-  //початок опису центральної частини футера
-  .center-part-footer,
-  .right-part-footer {
-    justify-items: center;
-
-    .all-nav {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .nav-title-footer {
-      font-family: 'Dela Gothic One', sans-serif;
-      font-size: 1.3vw;
-      letter-spacing: 0.3vw;
-      margin-bottom: 5vh;
-    }
-
-    a {
-      cursor: pointer;
-      text-decoration: none;
-      color: white;
-    }
-
-    .nav-bottom {
-      display: flex;
-      font-family: 'Montserrat Alternates', sans-serif;
-      font-size: 1vw;
-      margin: 0.5vw;
-    }
-
-  }
-}
+//footer {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center; // Вирівнює по центру по горизонталі
+//  justify-content: center; // Вирівнює по центру по вертикалі
+//  //margin: 2vw 5vw;
+//  .footer-icon {
+//    // height: 17vw;
+//    width: 100%;
+//  }
+//
+//  .footer-rect2 {
+//    padding: 3vw 2vw;
+//    display: flex;
+//    align-items: center;
+//    text-align: center; // Розміщує колонки рівномірно
+//    width: 100%; // Заповнює всю доступну ширину
+//    color: white;
+//    background: #000000;
+//  }
+//
+//  //початок опису лівої частини футера
+//  .left-part-footer {
+//    padding: 0;
+//    justify-items: center;
+//
+//    .footer-logo {
+//      width: 20vw;
+//      //height: 18vh;
+//      //width: 100%;
+//      // max-width: 60vw;
+//    }
+//
+//
+//    .team {
+//      margin-top: 1.5vw;
+//      display: flex;
+//      white-space: nowrap;
+//      //text-align: center;
+//      justify-content: space-between;
+//
+//      h6 {
+//        font-size: 1.5vw;
+//        font-family: 'Montserrat Alternates', sans-serif;
+//      }
+//    }
+//  }
+//
+//  //кінець опису лівої частини футера
+//
+//  //початок опису центральної частини футера
+//  .center-part-footer,
+//  .right-part-footer {
+//    justify-items: center;
+//
+//    .all-nav {
+//      display: flex;
+//      justify-content: space-between;
+//    }
+//
+//    .nav-title-footer {
+//      font-family: 'Dela Gothic One', sans-serif;
+//      font-size: 1.3vw;
+//      letter-spacing: 0.3vw;
+//      margin-bottom: 5vh;
+//    }
+//
+//    a {
+//      cursor: pointer;
+//      text-decoration: none;
+//      color: white;
+//    }
+//
+//    .nav-bottom {
+//      display: flex;
+//      font-family: 'Montserrat Alternates', sans-serif;
+//      font-size: 1vw;
+//      margin: 0.5vw;
+//    }
+//
+//  }
+//}
 
 
