@@ -19,7 +19,6 @@
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  //background-color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
 }
 
@@ -42,14 +41,14 @@
 }
 
 .arrow-button svg path {
-  fill: #000; /* Початковий колір */
+  fill: #000;
   transition: transform 0.3s ease;
 }
 
 .arrow-button:hover svg path {
-  fill: #fff; /* Колір заливки при наведенні */
+  fill: #fff;
 }
 
 .hidden {
-  display: none; /* Сховати елемент */
+  display: none;
 }
