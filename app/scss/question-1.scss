@@ -59,15 +59,18 @@ body {
   flex-wrap: wrap;
   gap: 2.5vw 4vw;
   justify-content: center;
-  height: 13vw;
+  height: 15vw;
   text-align: center;
   align-items: center;
+  overflow-y: auto;
   //max-width: 1400px;
   //min-width: 500px;
   //min-width: 300px;
   //max-width: clamp(500px, 80%, 1400px);
   //max-height: 80vh;
-  margin: 2vw 10vw;
+  //margin: 2vw 10vw;
+  margin: 1vw 10vw;
+  padding: 1vw 0;
 }
 
 .option {
@@ -89,6 +92,23 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
+.options::-webkit-scrollbar {
+  width: 1.5vw;
+  background-color: #B4C6AC;
+  border-radius: 1vw;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background-color: #2C3E2C;
+  border-radius: 1vw;
+  border: 0.3vw solid #B4C6AC;
+}
+
+//.options::-webkit-scrollbar-track {
+//  background-color: #B4C6AC;
+//  border-radius: 1vw;
+//}
+
 .progress-bars {
   display: flex;
   align-items: center;
@@ -104,9 +124,9 @@ body {
 .progress-bar-5,
 .progress-bar-6{
   flex-grow: 1;
-  height: 8px;
+  height: 0.4vw;
   background-color: rgb(0, 0, 0, 30%);
-  border-radius: 4px;
+  border-radius: 0.2vw;
   transition: background-color 0.3s ease-in-out;
 }
 
