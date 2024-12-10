@@ -57,7 +57,7 @@ gulp.task('images', () => {
 
 // Compress icons
 gulp.task('icons', () => {
-    return src('app/icons/*',{encoding:false})
+    return src('app/icons/**/*',{encoding:false})
         .pipe(imagemin())
         .pipe(dest('dist/icons'));
 });
@@ -84,4 +84,4 @@ gulp.task('browser-sync', () => {
     gulp.watch('./dist').on('change', browserSync.reload);
 });
 
-gulp.task('default', gulp.series('html', 'sass', 'uglify', 'images', "icons", gulp.parallel('browser-sync','watch')));
+gulp.task('default', gulp.series( 'html', 'sass', 'uglify', 'images', "icons", gulp.parallel('browser-sync','watch')));
