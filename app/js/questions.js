@@ -5,11 +5,26 @@ const locationQuestions = [
     },
     {
         question: "Які заклади у Львові вас цікавлять?",
-        possibleAnswers: ["Ресторани", "Кав’ярня", "Стейк-хаус", "Фаст-фуд", "Бари", "Піцерія"],
+        possibleAnswers: [
+            { id: 1, answer: "Ресторан" },
+            { id: 2, answer: "Кав’ярня" },
+            { id: 3, answer: "Стейк-хаус" },
+            { id: 4, answer: "Фаст-фуд" },
+            { id: 5, answer: "Бар" },
+            { id: 6, answer: "Піцерія" },
+        ],
     },
     {
         question: "Які види кухні ви хотіли б спробувати?",
-        possibleAnswers: ["Українська", "Європейська", "Азійська", "Американська", "Грузинська", "Італійська"],
+        possibleAnswers: [
+            { id: 1, answer: "Українська" },
+            { id: 2, answer: "Європейська" },
+            { id: 3, answer: "Азійська" },
+            { id: 4, answer: "Американська" },
+            { id: 5, answer: "Грузинська" },
+            { id: 6, answer: "Італійська" },
+            // { id: 7, answer: "" },
+        ],
     },
     {
         question: "Чи цікавлять пет-френдлі заклади?",
@@ -21,26 +36,45 @@ const locationQuestions = [
     },
     {
         question: "З якою метою ви шукаєте заклад?",
-        possibleAnswers: ["Банкети", "Сімейний відпочинок", "Побачення", "Ситно поїсти", "Зустріч з друзями"],
+        possibleAnswers: [
+            { id: 1, answer: "Банкети" },
+            { id: 2, answer: "Сімейний відпочинок" },
+            { id: 3, answer: "Побачення" },
+            { id: 4, answer: "Ситно поїсти" },
+            { id: 5, answer: "Зустріч з друзями" },
+        ],
     },
 ];
 
 const placeQuestions = [
     {
-        question: "В якому районі Львова хочете відвідати заклад?",
+        question: "В якому районі Львова хочете відвідати локацію?",
         possibleAnswers: ["Центр міста", "Шевченківський", "Личаківський", "Сихівський", "Франківський", "Залізничний"],
     },
     {
         question: "Як тип відпочинку обираєте?",
-        possibleAnswers: ["Активний", "Пасивний", "Сімейний", "Культурний", "Розважальний"],
+        possibleAnswers: [
+            { id: 6, answer: "Активний" },
+            { id: 7, answer: "Пасивний" },
+            { id: 2, answer: "Сімейний" },
+            { id: 8, answer: "Культурний" },
+            { id: 9, answer: "Розважальний" },
+        ],
     },
     {
         question: "Який тип локацій вам цікавий?",
-        possibleAnswers: ["Парки", "Пам’ятки архітектури", "Галереї", "Театри", "Музеї", "Кінотеатри", "Церкви/Собори", "Інше"],
+        possibleAnswers: [
+            { id: 7, answer: "Парки" },
+            { id: 10, answer: "Пам’ятки архітектури" },
+            { id: 9, answer: "Галереї" },
+            { id: 8, answer: "Театри" },
+            { id: 13, answer: "Музеї" },
+            { id: 11, answer: "Кінотеатри" },
+            { id: 12, answer: "Церкви/Собори" },
+            { id: 14, answer: "Інше" },
+        ],
     },
 ]
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const quizContainer = document.getElementById("quizContainer");
     const pageType = quizContainer?.dataset.pageType;
@@ -49,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Не знайдено контейнер або тип сторінки.");
         return;
     }
+
     const quizProgress = document.querySelector(".progress-bars");
     const questionContainer = document.querySelector(".question");
     const optionsContainer = document.querySelector(".options");
@@ -66,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let currentQuestionIndex = 0;
-    let userAnswers = {};
+    let userAnswers = {}; // Зберігаємо відповіді за індексами питань
 
     initializeQuiz();
 
@@ -85,14 +120,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentQuestionIndex++;
                 handleQuestion(currentQuestionIndex);
             } else {
-                console.log(userAnswers);
-                // showResults();
+                generateRequest();
             }
         });
     }
 
     function handleQuestion(index) {
-        //Оновлюємо прогрес
+        // Оновлюємо прогрес
         quizProgress.innerHTML = "";
         questions.forEach((_, i) => {
             quizProgress.innerHTML += `<span class="${i <= index ? 'complete' : ''}"></span>`;
@@ -104,34 +138,137 @@ document.addEventListener("DOMContentLoaded", () => {
         // Відображаємо варіанти відповідей
         optionsContainer.innerHTML = "";
         questions[index].possibleAnswers.forEach((answer) => {
-            const isSelected = userAnswers[index]?.includes(answer) ? 'selected' : '';
-            optionsContainer.innerHTML += `<button class="option ${isSelected}">${answer}</button>`;
+            const answerText = typeof answer === "string" ? answer : answer.answer;
+            const answerId = typeof answer === "string" ? answer : answer.id;
+            const isSelected = userAnswers[index]?.some(a => a.id === answerId || a.answer === answerText) ? 'selected' : '';
+
+            optionsContainer.innerHTML += `<button class="option ${isSelected}" data-id="${answerId || ''}">${answerText}</button>`;
         });
 
         document.querySelectorAll(".option").forEach(option => {
             option.addEventListener("click", (e) => {
-                const selectedAnswer = e.target.textContent;
+                const answerId = e.target.dataset.id ? parseInt(e.target.dataset.id) : null;
+                const answerText = e.target.textContent;
 
                 if (!userAnswers[index]) {
                     userAnswers[index] = [];
                 }
-                if (!userAnswers[index].includes(selectedAnswer)) {
-                    userAnswers[index].push(selectedAnswer);
+
+                // Додаємо або видаляємо відповідь
+                const existingAnswerIndex = userAnswers[index].findIndex(a => a.id === answerId || a.answer === answerText);
+                if (existingAnswerIndex === -1) {
+                    userAnswers[index].push({ id: answerId, answer: answerText });
                     e.target.classList.add("selected");
                 } else {
-                    userAnswers[index] = userAnswers[index].filter(ans => ans !== selectedAnswer);
+                    userAnswers[index].splice(existingAnswerIndex, 1);
                     e.target.classList.remove("selected");
                 }
             });
         });
     }
-//     function showResults() {
-//         questionContainer.innerHTML = "<h1>Результати:</h1>";
-//         optionsContainer.innerHTML = Object.entries(userAnswers).map(([index, answers]) => `
-//             <div>
-//                 <h2>${questions[index].question}</h2>
-//                 <p>${answers.join(", ") || "Не обрано"}</p>
-//             </div>
-//         `).join("");
-//     }
+
+    function generateRequest() {
+        const params = {
+            types_to_sort: [],
+            districts_to_sort: [],
+            purposes_to_sort: [],
+            cuisines_to_sort: [],
+            pet_friendly: [],
+            budgets_to_sort: []
+        };
+
+        questions.forEach((question, index) => {
+            const answers = userAnswers[index] || [];
+
+            //вивід для діагностики
+            console.log(`Processing question: ${question.question}`);
+            console.log(`Answers:`, answers);
+
+            // Якщо немає відповіді, обираємо всі варіанти
+            if (answers.length === 0) {
+                if (question.question.includes("район")) {
+                    params.districts_to_sort = question.possibleAnswers.map(a => a);
+                } else if (index === 1 && question.question.includes("заклади")) {
+                    params.types_to_sort = question.possibleAnswers.map(a => a.id).filter(id => id !== undefined);
+                }else if (question.question.includes("локацій")) {
+                    params.types_to_sort = question.possibleAnswers.map(a => a.id).filter(id => id !== undefined);
+                } else if (question.question.includes("кухні")) {
+                    params.cuisines_to_sort = question.possibleAnswers.map(a => a.id).filter(id => id !== undefined);
+                    if (!params.cuisines_to_sort.includes(7)) {
+                        params.cuisines_to_sort.push(7);
+                    }
+                } else if (question.question.includes("пет-френдлі")) {
+                    params.pet_friendly = question.possibleAnswers.map(a => a);
+                } else if (question.question.includes("бюджет")) {
+                    params.budgets_to_sort = question.possibleAnswers.map(a => a);
+                } else if (question.question.includes("метою")) {
+                    params.purposes_to_sort = question.possibleAnswers.map(a => a.id).filter(id => id !== undefined);
+                }else if (question.question.includes("відпочинку")) {
+                    params.purposes_to_sort = question.possibleAnswers.map(a => a.id).filter(id => id !== undefined);
+                }
+            } else {
+                // Обробка вибраних відповідей
+                if (question.question.includes("район")) {
+                    params.districts_to_sort = answers.map(a => a.answer);
+                } else if (index === 1 && question.question.includes("заклади")) {
+                    params.types_to_sort = answers.filter(a => a.id).map(a => a.id);
+                }else if (question.question.includes("локацій")) {
+                    params.types_to_sort = answers.filter(a => a.id).map(a => a.id);
+                } else if (question.question.includes("кухні")) {
+                    params.cuisines_to_sort = answers.filter(a => a.id).map(a => a.id);
+                    if (!params.cuisines_to_sort.includes(7)) {
+                        params.cuisines_to_sort.push(7);
+                    }
+                } else if (question.question.includes("пет-френдлі")) {
+                    params.pet_friendly = answers.map(a => a.answer);
+                } else if (question.question.includes("бюджет")) {
+                    params.budgets_to_sort = answers.map(a => a.answer);
+                } else if (question.question.includes("метою")) {
+                    params.purposes_to_sort = answers.filter(a => a.id).map(a => a.id);
+                }else if (question.question.includes("відпочинку")) {
+                    params.purposes_to_sort = answers.filter(a => a.id).map(a => a.id);
+                }
+            }
+        });
+
+        console.log("Generated params:", params);
+
+        const query = Object.entries(params)
+            .map(([key, value]) => {
+                if (Array.isArray(value) && value.length > 0) {
+                    return `${key}=[${value.map(v => (typeof v === 'number' ? v : `\"${v}\"`)).join(",")}]`;
+                } else if (value !== null && value.length) {
+                    return `${key}=${value}`;
+                }
+                return null;
+            })
+            .filter(Boolean)
+            .join("&");
+
+        const endpoint = `../recommendations?\n${query}`;
+        console.log(endpoint);
+        // const query = Object.entries(params)
+        //     .map(([key, value]) => {
+        //         if (Array.isArray(value) && value.length > 0) {
+        //             return `${key}=[${value.join(",")}]`;
+        //         } else if (value !== null && value.length) {
+        //             return `${key}=${value}`;
+        //         }
+        //         return null;
+        //     })
+        //     .filter(Boolean)
+        //     .join("&");
+        //
+        // const endpoint = `../recommendations?\n${query}`;
+        // console.log( endpoint);
+    }
+    // Обробка подій для кнопок
+    // const endSurveyButton = document.querySelector('.nav-button.end');
+    // if (endSurveyButton) {
+    //     endSurveyButton.addEventListener('click', () => {
+    //         alert('Опитування завершено. Дякуємо за вашу участь!');
+    //         // Додати логіку завершення опитування, наприклад, перехід на головну сторінку
+    //         window.location.href = '/main-page'; // Змінити на потрібний URL
+    //     });
+    // }
 });
