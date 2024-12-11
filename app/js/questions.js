@@ -1,94 +1,137 @@
-// // Імена файлів питань
-// const questionFiles = [
-//     "./html/location-questionnaire/question-1.html",
-//     "./html/location-questionnaire/question-2.html",
-//     "./html/location-questionnaire/question-3.html",
-//     "./html/location-questionnaire/question-4.html",
-//     "./html/location-questionnaire/question-5.html",
-//     "./html/location-questionnaire/question-6.html",
-// ];
-//
-// // Індекс поточного питання
-// let currentQuestionIndex = 0;
-//
-// // Елемент, у який завантажуються питання
-// const questionnaireContainer = document.getElementById("questionnaire");
-//
-// // Функція для завантаження HTML файлу
-// function loadQuestion(index) {
-//     if (index >= 0 && index < questionFiles.length) {
-//         fetch(questionFiles[index])
-//             .then((response) => {
-//                 if (!response.ok) {
-//                     throw new Error(`Помилка завантаження файлу: ${response.statusText}`);
-//                 }
-//                 return response.text();
-//             })
-//             .then((html) => {
-//                 // Завантажуємо HTML у контейнер
-//                 questionnaireContainer.innerHTML = html;
-//
-//                 // Оновлюємо прогрес-бари
-//                 updateProgressBars(index);
-//             })
-//             .catch((error) => {
-//                 console.error("Помилка:", error);
-//             });
-//     }
-// }
-//
-// // Функція оновлення прогрес-барів
-// function updateProgressBars(index) {
-//     const progressBars = document.querySelectorAll(".progress-bars > div");
-//     progressBars.forEach((bar, i) => {
-//         bar.classList.toggle("active", i === index);
-//     });
-// }
-//
-// // Обробник для стрілок
-// document.querySelector(".left-arrow").addEventListener("click", () => {
-//     if (currentQuestionIndex > 0) {
-//         currentQuestionIndex--;
-//         loadQuestion(currentQuestionIndex);
-//     }
-// });
-//
-// document.querySelector(".right-arrow").addEventListener("click", () => {
-//     if (currentQuestionIndex < questionFiles.length - 1) {
-//         currentQuestionIndex++;
-//         loadQuestion(currentQuestionIndex);
-//     }
-// });
-//
-// // Завантаження першого питання при завантаженні сторінки
-// loadQuestion(currentQuestionIndex);
-let currentQuestionIndex = 1; // Індекс поточного питання
-const totalQuestions = 6; // Загальна кількість питань
+const locationQuestions = [
+    {
+        question: "В якому районі Львова хочете відвідати заклад?",
+        possibleAnswers: ["Центр міста", "Шевченківський", "Личаківський", "Сихівський", "Франківський", "Залізничний"],
+    },
+    {
+        question: "Які заклади у Львові вас цікавлять?",
+        possibleAnswers: ["Ресторани", "Кав’ярня", "Стейк-хаус", "Фаст-фуд", "Бари", "Піцерія"],
+    },
+    {
+        question: "Які види кухні ви хотіли б спробувати?",
+        possibleAnswers: ["Українська", "Європейська", "Азійська", "Американська", "Грузинська", "Італійська"],
+    },
+    {
+        question: "Чи цікавлять пет-френдлі заклади?",
+        possibleAnswers: ["Так", "Неважливо"],
+    },
+    {
+        question: "На який бюджет ви розраховуєте?",
+        possibleAnswers: ["Мінімальний", "Середній", "Преміум"],
+    },
+    {
+        question: "З якою метою ви шукаєте заклад?",
+        possibleAnswers: ["Банкети", "Сімейний відпочинок", "Побачення", "Ситно поїсти", "Зустріч з друзями"],
+    },
+];
 
-function loadQuestion(index) {
-    if (index >= 1 && index <= totalQuestions) {
-        const iframe = document.getElementById('questionContainer');
-        iframe.src = `/html/location-questionnaire/question-${index}.html`;
+const placeQuestions = [
+    {
+        question: "В якому районі Львова хочете відвідати заклад?",
+        possibleAnswers: ["Центр міста", "Шевченківський", "Личаківський", "Сихівський", "Франківський", "Залізничний"],
+    },
+    {
+        question: "Як тип відпочинку обираєте?",
+        possibleAnswers: ["Активний", "Пасивний", "Сімейний", "Культурний", "Розважальний"],
+    },
+    {
+        question: "Який тип локацій вам цікавий?",
+        possibleAnswers: ["Парки", "Пам’ятки архітектури", "Галереї", "Театри", "Музеї", "Кінотеатри", "Церкви/Собори", "Інше"],
+    },
+]
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const quizContainer = document.getElementById("quizContainer");
+    const pageType = quizContainer?.dataset.pageType;
+
+    if (!quizContainer || !pageType) {
+        console.error("Не знайдено контейнер або тип сторінки.");
+        return;
     }
-}
+    const quizProgress = document.querySelector(".progress-bars");
+    const questionContainer = document.querySelector(".question");
+    const optionsContainer = document.querySelector(".options");
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
 
-// Обробник для переходу до попереднього питання
-document.querySelector('.left-arrow').addEventListener('click', function () {
-    if (currentQuestionIndex > 1) {
-        currentQuestionIndex--;
-        loadQuestion(currentQuestionIndex);
+    let questions;
+    if (pageType === "location") {
+        questions = locationQuestions;
+    } else if (pageType === "place") {
+        questions = placeQuestions;
+    } else {
+        console.error("Невідомий тип сторінки.");
+        return;
     }
-});
 
-// Обробник для переходу до наступного питання
-document.querySelector('.right-arrow').addEventListener('click', function () {
-    if (currentQuestionIndex < totalQuestions) {
-        currentQuestionIndex++;
-        loadQuestion(currentQuestionIndex);
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+
+    initializeQuiz();
+
+    function initializeQuiz() {
+        handleQuestion(currentQuestionIndex);
+
+        leftArrow.addEventListener("click", () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                handleQuestion(currentQuestionIndex);
+            }
+        });
+
+        rightArrow.addEventListener("click", () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                handleQuestion(currentQuestionIndex);
+            } else {
+                console.log(userAnswers);
+                // showResults();
+            }
+        });
     }
-});
 
-// Завантажує перше питання при завантаженні сторінки
-document.addEventListener('DOMContentLoaded', function () {
-    loadQuestion(currentQuestionIndex);
+    function handleQuestion(index) {
+        //Оновлюємо прогрес
+        quizProgress.innerHTML = "";
+        questions.forEach((_, i) => {
+            quizProgress.innerHTML += `<span class="${i <= index ? 'complete' : ''}"></span>`;
+        });
+
+        // Відображаємо питання
+        questionContainer.innerHTML = `<h1>${questions[index].question}</h1>`;
+
+        // Відображаємо варіанти відповідей
+        optionsContainer.innerHTML = "";
+        questions[index].possibleAnswers.forEach((answer) => {
+            const isSelected = userAnswers[index]?.includes(answer) ? 'selected' : '';
+            optionsContainer.innerHTML += `<button class="option ${isSelected}">${answer}</button>`;
+        });
+
+        document.querySelectorAll(".option").forEach(option => {
+            option.addEventListener("click", (e) => {
+                const selectedAnswer = e.target.textContent;
+
+                if (!userAnswers[index]) {
+                    userAnswers[index] = [];
+                }
+                if (!userAnswers[index].includes(selectedAnswer)) {
+                    userAnswers[index].push(selectedAnswer);
+                    e.target.classList.add("selected");
+                } else {
+                    userAnswers[index] = userAnswers[index].filter(ans => ans !== selectedAnswer);
+                    e.target.classList.remove("selected");
+                }
+            });
+        });
+    }
+//     function showResults() {
+//         questionContainer.innerHTML = "<h1>Результати:</h1>";
+//         optionsContainer.innerHTML = Object.entries(userAnswers).map(([index, answers]) => `
+//             <div>
+//                 <h2>${questions[index].question}</h2>
+//                 <p>${answers.join(", ") || "Не обрано"}</p>
+//             </div>
+//         `).join("");
+//     }
 });
