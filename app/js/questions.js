@@ -153,16 +153,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!userAnswers[index]) {
                     userAnswers[index] = [];
                 }
-
-                // Додаємо або видаляємо відповідь
-                const existingAnswerIndex = userAnswers[index].findIndex(a => a.id === answerId || a.answer === answerText);
-                if (existingAnswerIndex === -1) {
-                    userAnswers[index].push({ id: answerId, answer: answerText });
-                    e.target.classList.add("selected");
+                // Якщо питання стосується "пет-френдлі", дозволяємо обрати лише одну відповідь
+                if (questions[currentQuestionIndex].question.includes("пет-френдлі")) {
+                    userAnswers[currentQuestionIndex] = [{ id: answerId, answer: answerText }];
+                    document.querySelectorAll(".option").forEach(opt => opt.classList.remove("selected"));
                 } else {
-                    userAnswers[index].splice(existingAnswerIndex, 1);
-                    e.target.classList.remove("selected");
+                    // Додаємо або видаляємо відповідь для інших питань
+                    const existingAnswerIndex = userAnswers[currentQuestionIndex].findIndex(a => a.id === answerId || a.answer === answerText);
+                    if (existingAnswerIndex === -1) {
+                        userAnswers[currentQuestionIndex].push({ id: answerId, answer: answerText });
+                    } else {
+                        userAnswers[currentQuestionIndex].splice(existingAnswerIndex, 1);
+                    }
                 }
+                e.target.classList.toggle("selected");
             });
         });
     }
@@ -173,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
             districts_to_sort: [],
             purposes_to_sort: [],
             cuisines_to_sort: [],
-            pet_friendly: [],
+            pet_friendly: "",
             budgets_to_sort: []
         };
 
@@ -198,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         params.cuisines_to_sort.push(7);
                     }
                 } else if (question.question.includes("пет-френдлі")) {
-                    params.pet_friendly = question.possibleAnswers.map(a => a);
+                    params.pet_friendly = "Неважливо";
                 } else if (question.question.includes("бюджет")) {
                     params.budgets_to_sort = question.possibleAnswers.map(a => a);
                 } else if (question.question.includes("метою")) {
@@ -220,7 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         params.cuisines_to_sort.push(7);
                     }
                 } else if (question.question.includes("пет-френдлі")) {
-                    params.pet_friendly = answers.map(a => a.answer);
+                    params.pet_friendly = answers[1]?.answer || answers[0]?.answer;
+                    // params.pet_friendly = answers[0].answer;
+                    // params.pet_friendly = answers[1].answer;
+                    // params.pet_friendly = answers[0]?.answer || "";
+                    // params.pet_friendly = a.answer;
                 } else if (question.question.includes("бюджет")) {
                     params.budgets_to_sort = answers.map(a => a.answer);
                 } else if (question.question.includes("метою")) {
@@ -237,8 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .map(([key, value]) => {
                 if (Array.isArray(value) && value.length > 0) {
                     return `${key}=[${value.map(v => (typeof v === 'number' ? v : `\"${v}\"`)).join(",")}]`;
-                } else if (value !== null && value.length) {
-                    return `${key}=${value}`;
+                } else if (typeof value === 'string' && value) {
+                    return `${key}="${value}"`;
                 }
                 return null;
             })
@@ -247,22 +255,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const endpoint = `../recommendations?\n${query}`;
         console.log(endpoint);
-        // const query = Object.entries(params)
-        //     .map(([key, value]) => {
-        //         if (Array.isArray(value) && value.length > 0) {
-        //             return `${key}=[${value.join(",")}]`;
-        //         } else if (value !== null && value.length) {
-        //             return `${key}=${value}`;
-        //         }
-        //         return null;
-        //     })
-        //     .filter(Boolean)
-        //     .join("&");
-        //
-        // const endpoint = `../recommendations?\n${query}`;
-        // console.log( endpoint);
     }
     // Обробка подій для кнопок
+    // document.querySelector('.nav-button.end').addEventListener('click', () => {
+    //     // Викликаємо функцію для генерації параметрів
+    //     generateRequest();
+    //
+    //     // Направляємо користувача до сторінки результатів
+    //     window.location.href = '../recommendations'; // Змініть URL на потрібний
+    // });
     // const endSurveyButton = document.querySelector('.nav-button.end');
     // if (endSurveyButton) {
     //     endSurveyButton.addEventListener('click', () => {
