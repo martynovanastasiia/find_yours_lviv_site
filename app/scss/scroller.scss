@@ -1,0 +1,38 @@
+.scroller {
+  margin-top: 4vh;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 6vw;
+  padding: 2vw 5vw;
+  scroll-behavior: smooth;
+  justify-content: start;
+}
+
+.scroller img {
+  width: 25vw;
+  height: 30vw;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 5vh;
+}
+
+.scroller.few-images {
+  justify-content: center;
+}
+
+.scroller.three img {
+  width: 25vw;
+}
+
+.scroller.two img {
+  width: 40vw;
+}
+
+.scroller.one img {
+   width: 80vw;
+ }
+
+.hidden {
+  display: none;
+}
