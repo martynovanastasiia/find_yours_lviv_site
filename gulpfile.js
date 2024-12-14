@@ -33,7 +33,8 @@ gulp.task('sass', gulp.series('minify-css','minify-scss'));
 
 // Minify JS
 gulp.task('uglify', () => {
-    return src('app/js/**/*.js')
+    return src('app/js/*.js')
+        //.pipe(concat('all.min.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(dest('dist/js'))
@@ -49,17 +50,10 @@ gulp.task('html', () => {
 });
 
 // Compress images
-gulp.task('images', () => {
+gulp.task('img', () => {
     return src('app/images/*',{encoding:false})
         .pipe(imagemin())
         .pipe(dest('dist/images'));
-});
-
-// Compress icons
-gulp.task('icons', () => {
-    return src('app/icons/**/*',{encoding:false})
-        .pipe(imagemin())
-        .pipe(dest('dist/icons'));
 });
 
 // Watcher
@@ -69,10 +63,8 @@ gulp.task('watch', () => {
     gulp.watch('app/js/*.js', gulp.series('uglify'));
     gulp.watch('app/index.html', gulp.series('html'));
     gulp.watch('app/html/*.html', gulp.series('html'));
-    gulp.watch('app/images/*', gulp.series('images'));
-    gulp.watch('app/icons/*', gulp.series('icons'));
+    gulp.watch('app/images/*', gulp.series('img'));
 });
-
 
 // Update browser
 gulp.task('browser-sync', () => {
@@ -84,4 +76,4 @@ gulp.task('browser-sync', () => {
     gulp.watch('./dist').on('change', browserSync.reload);
 });
 
-gulp.task('default', gulp.series( 'html', 'sass', 'uglify', 'images', "icons", gulp.parallel('browser-sync','watch')));
+gulp.task('default', gulp.series('html', 'sass', 'uglify', 'img', gulp.parallel('browser-sync','watch')));
