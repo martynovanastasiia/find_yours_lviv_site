@@ -1,6 +1,104 @@
-
-.container-fluid{
+.container-fluid {
   margin: 0 auto;
   padding: 7vw 0;
   overflow-x: hidden;
 }
+
+.main-page {
+  .left-part-main {
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+
+    .slogan {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: 3vw;
+      line-height: 125%;
+      letter-spacing: 0.125em;
+      color: #000;
+      margin: 0 0 2vw;
+    }
+  }
+
+  .main-button {
+
+    a {
+      h3 {
+        font-weight: 400;
+        font-size: 2vw;
+        color: #ffffff;
+
+      }
+
+      h5 {
+        font-weight: 400;
+        font-size: 1.2vw;
+        color: #ffffff;
+      }
+
+      padding: 1vw 1.5vw 1vw 0;
+      font-family: "Montserrat", sans-serif;
+      text-decoration: none;
+      letter-spacing: 0.2em;
+      text-align: center;
+      color: black;
+    }
+
+    .main-titles {
+     width: 16vw;
+//height: auto;
+      border-radius: 0.8em;
+      background-color: #4c7839;
+      box-shadow: 0 10px 17px 0 #33442c;
+      margin: 0;
+      padding: 1vw;
+      position: relative; /* Встановіть для позиціювання */
+      z-index: 1; /* Щоб блок залишався поверх .main-description */
+      align-content: center;
+
+    }
+
+    .main-description {
+
+      padding: 4vw 1vw 1vw;
+      border-radius: 2vw;
+      height: 30vh;
+     // width: auto;
+      text-align: center;
+      align-content: center;
+
+      box-shadow: inset 0 10px 17px 0 #465f3c;
+      background: rgba(76, 120, 57, 0.8);
+      margin-top: -3vw; /*  щоб блок "зайшов" під .main-titles */
+      position: relative;
+      z-index: 0;
+    }
+  }
+
+  .opera {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    //align-items: end;
+
+
+    img {
+      padding-top: 5%;
+      width: 70%;
+      height: 85%;
+
+    }
+  }
+}
+.top{
+  img{
+
+    width: 100%;
+   margin-left: -0.5vw;
+    //object-fit: cover;
+  }
+}
+
+
