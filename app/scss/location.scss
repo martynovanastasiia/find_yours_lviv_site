@@ -1,0 +1,130 @@
+@use "mixins";
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Відключає прокрутку на всій сторінці */
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.container-fluid {
+  padding: 6vw 0;
+  margin: 0;
+  background-image: url("../icons/long-line.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+  background-position: top 66vw center;
+  width: 100%;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+}
+
+.clipped {
+  width: 100%;
+  //height: auto;
+  -webkit-clip-path: url(#my-clip-path);
+  //clip-path: url(#my-clip-path);
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  //object-position: center;
+}
+
+.button {
+  top: 51vw;
+  right: 0.25vw;
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  justify-content: space-between;
+  padding: 0.5vw 1.5vw;
+  background-color: #4c7839;
+  color: #ffffff;
+  font-size: 1vw;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 200%;
+  letter-spacing: 0.2vw;
+  border-radius: 2vw;
+  box-shadow: 0 0.25vw 0.9375vw rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  .text {
+    margin-right: 0.5vw;
+  }
+
+  .icon {
+    font-size: 1.2vw;
+  }
+
+  img {
+    height: auto;
+    width: 1.5vw;
+  }
+}
+
+.button:hover {
+  background-color: #1f3017;
+}
+
+.header1 {
+  text-align: center;
+
+  h1 {
+    @include mixins.font-montserrat-bold;
+    margin: 0;
+    padding: 2vw 0;
+  }
+}
+
+.place-info {
+  margin: 1vw 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10vw;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.info-item img {
+  height: auto;
+  width: 4vw;
+}
+
+.info-item span {
+  @include mixins.font-montserrat-regular;
+}
+
+.info-item a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.description p {
+  @include mixins.font-montserrat-regular;
+  margin: 3vw 5vw;
+  text-align: justify;
+  padding: 0;
+}
+
+.map {
+  margin: 4vw 0;
+}
