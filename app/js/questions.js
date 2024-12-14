@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     endSurveyButton.addEventListener('click', () => {
     //         alert('Опитування завершено. Дякуємо за вашу участь!');
     //         // Додати логіку завершення опитування, наприклад, перехід на головну сторінку
-    //         window.location.href = '/main-page'; // Змінити на потрібний URL
+    //         window.location.href = '/main-page(index)'; // Змінити на потрібний URL
     //     });
     // }
 });
