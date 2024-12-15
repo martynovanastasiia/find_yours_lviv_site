@@ -22,3 +22,10 @@
   font-weight: 500;
   line-height: 100%;
 }
+
+@mixin font-montserrat-bold {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: 0.2vw;
+}
