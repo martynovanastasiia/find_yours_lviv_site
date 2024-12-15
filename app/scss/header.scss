@@ -1,11 +1,7 @@
-
-.navbar {
-  z-index: 100;
   .logo {
     width: 11vw;
     height: 5vw;
   }
-
   background: linear-gradient(to right, #000000, #465F3C);
   width: 100%;
   margin: 0;
@@ -14,7 +10,6 @@
   padding: 1vw 2vw;
   overflow: hidden;
   //display: flex;
-
   .search-bar {
     display: flex;
     border: 3px solid #fff;
@@ -53,7 +48,6 @@
       color: #fff;
       //line-height: 0;
     }
-
   }
 
   ::placeholder {
@@ -80,20 +74,16 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3vw;
     font-weight: 600;
-    transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
   }
 
   .active {
     border-radius: 60px/60px;
     color: #000;
-
     padding: 1vw 1.5vw;
     background-color: white;
-
   }
 
   ul li a:hover {
     text-shadow: 1px 1px 3px black;
   }
-
 }
