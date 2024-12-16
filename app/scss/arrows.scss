@@ -1,0 +1,54 @@
+/* Center the container */
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1vw 1.5vw;
+
+}
+
+/* Style the arrow buttons */
+.arrow-button {
+  width: 5vw;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0016vw solid #000;
+  border-radius: 1.8vw;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.arrow-button svg {
+  height: auto;
+  width: 2.5vw;
+  transition: transform 0.3s ease;
+}
+
+.arrow-button:hover {
+  background-color: #000;
+  stroke: #fff;
+  fill: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+}
+
+.arrow-button:hover img {
+  transform: translateX(2px);
+}
+
+.arrow-button svg path {
+  fill: #000;
+  transition: transform 0.3s ease;
+}
+
+.arrow-button:hover svg path {
+  fill: #fff;
+}
+
+.hidden {
+  display: none;
+}
