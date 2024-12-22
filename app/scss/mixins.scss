@@ -23,9 +23,9 @@
   line-height: 100%;
 }
 
-@mixin font-montserrat-bold {
+@mixin font-montserrat-small {
   font-family: Montserrat, sans-serif;
-  font-weight: 700;
-  font-size: 3vw;
-  letter-spacing: 0.2vw;
+  font-weight: 400;
+  font-size: 1vw;
+  letter-spacing: 0.02vw;
 }
