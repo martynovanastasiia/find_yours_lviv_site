@@ -94,9 +94,10 @@ body {
   position: absolute;
   bottom: 5vw;
   right: 0;
-  padding: 1vw;
+  margin: 1vw;
   z-index: 200;
   cursor: pointer;
+  backdrop-filter: blur(0.1vw);
 }
 
 .like-icon path:nth-of-type(3) {
