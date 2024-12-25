@@ -27,16 +27,12 @@ body {
   padding: 5vw 0 0 0;
 }
 
-.col-8 {
-  //justify-content: center;
-  padding: 0;
-}
-
 .place {
   margin: 3vw 0;
   display: flex;
-  background-color: #D9D9D9;
-  border-radius: 4vw;
+  background-color: #f8f8f8;
+  border-radius: 3vw;
+  border: black 0.1vw solid;
   height: 15vw;
   overflow: hidden;
 
@@ -87,10 +83,9 @@ body {
       font-weight: 600;
     }
   }
-
 }
 
-.like-icon{
+.like-icon {
   position: absolute;
   bottom: 5vw;
   right: 0;
@@ -108,12 +103,11 @@ body {
   fill: #ffffff; /* Зміна кольору на білий для сердечка */
 }
 
+//left column with selected options
 
 .option {
   @include mixins.font-montserrat-medium;
   font-size: 1.2vw;
-  //height: 3vw;
-  //width: 12vw;
   background-color: #B4C6AC;
   border-radius: 1.5vw;
   padding: 1vw;
@@ -123,15 +117,15 @@ body {
   box-shadow: 0 0 1vw rgb(0, 0, 0, 0.25);
 }
 
-.selected{
+.selected {
   //margin: 1.5vw;
-  padding: 1vw 0 0  2vw;
+  padding: 1vw 0 0 2vw;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(0.5vw);
   z-index: 1000;
   border-radius: 1vw;
 
-  p{
+  p {
     @include mixins.font-montserrat-medium;
     font-size: 1.2vw;
     padding: 0.6vw;
@@ -139,13 +133,14 @@ body {
   }
 }
 
-.random{
+.random {
   position: fixed;
   bottom: 0;
   right: 0;
   cursor: pointer;
 }
-.random:hover{
+
+.random:hover {
   background-color: #4c7839;
   color: #fff;
 }
