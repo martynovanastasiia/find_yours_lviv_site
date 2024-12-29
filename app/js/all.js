@@ -16,3 +16,19 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+const placesSection = document.getElementById("placesSection");
+const locationsSection = document.getElementById("locationsSection");
+const nextToLocations = document.getElementById("nextToLocations");
+const prevToLocations = document.getElementById("prevToLocations");
+
+// Показуємо "Локації"
+nextToLocations.addEventListener("click", () => {
+    placesSection.classList.remove("active");
+    locationsSection.classList.add("active");
+});
+
+// Повертаємося до "Закладів"
+prevToLocations.addEventListener("click", () => {
+    locationsSection.classList.remove("active");
+    placesSection.classList.add("active");
+});
