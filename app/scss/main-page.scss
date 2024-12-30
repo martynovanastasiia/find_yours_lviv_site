@@ -48,14 +48,13 @@
 
     .main-titles {
       width: 16vw;
-      //height: auto;
       border-radius: 0.8em;
       background-color: #4c7839;
       box-shadow: 0 10px 17px 0 #33442c;
       margin: 0;
       padding: 1vw;
-      position: relative; /* Встановіть для позиціювання */
-      z-index: 1; /* Щоб блок залишався поверх .main-description */
+      position: relative;
+      z-index: 1;
       align-content: center;
 
     }
@@ -100,8 +99,7 @@
 }
 
 .about-us {
-  //align-items: center;
-  //display: flex;
+  margin-top: 13vh;
   .info-about-us {
     margin-right: 1vw;
     margin-left: 2vw;
@@ -136,97 +134,97 @@
     }
   }
 }
-//.section {
-//  display: none; /* Приховуємо секції за замовчуванням */
-//}
-//
-//.section.active {
-//  display: block; /* Відображаємо лише активну секцію */
-//}
-//
-//.row.flex-nowrap {
-//  scroll-behavior: smooth;
-//}
-.recommended{
-  h2 {
-    font-family:"Unbounded", sans-serif;
-    font-size: 3em;
-    font-weight: 400;
-    text-align: center;
-    letter-spacing: 0.2em;
-    color: #000;
-  }
-.people-recom{
-  display: flex!important;
-}
-  .card-body{
-    padding: 1vw;
-    background-color: #4C7839;
-    width:  20vw;
-    border-radius:0 0 2em 2em;
-    .small-icon{
-      align-items: center;
-      display: flex;
-      img{
-       // margin-left: 0.2em;
-        border-radius: 0;
-        width: 0.9em;
-       height: 0.9em;
+
+.recommended {
+  .item{
+    h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 3em;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.2em;
+      color: #000;
+    }
+
+    .people-recom {
+      display: flex !important;
+    }
+
+    .card-body {
+      padding: 1vw;
+      background-color: #4C7839;
+      width: 20vw;
+      border-radius: 0 0 2em 2em;
+
+      .small-icon {
+        align-items: center;
+        display: flex;
+        margin-bottom: 0.3em;
+
+        img {
+          border-radius: 0;
+          width: 0.7em;
+          height: 0.7em;
+        }
+      }
+
+      .card-title {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
+        color: #fff;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .card-text {
+        margin: 0 0 0 0.5em;
+        font-weight: 400;
+        font-size: 0.7em;
+        -webkit-line-clamp: 1;
+        letter-spacing: 0.2em;
+        color: #fff;
       }
     }
-  .card-title{
-    font-family: "Unbounded", sans-serif;
-    font-weight: 400;
-    font-size: 1.2em;
-    line-height: 133%;
-    letter-spacing: 0.1em;
-    color: #fff;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-  .card-text{
-    margin: 0  0 0 1em;
-    font-weight: 400;
-    font-size: 0.7em;
-    -webkit-line-clamp: 1;
-    letter-spacing: 0.2em;
 
-    color: #fff;
+    .p-r {
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      border-radius: 2em 2em 0 0;
+      width: 20vw;
+      object-fit: cover;
+      height: 15em;
+    }
+
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+  }
+  .arrow-button {
+    margin-top: 5vh;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    z-index: 10;
+    cursor: pointer;
   }
 
+  .left-arrow {
+    left: 2.5vw;
+  }
+
+  .right-arrow {
+    right: 2.5vw;
+  }
 
 }
-
-  .p-r{
-  display: flex;
-
-   justify-content: center;
- }
-  img{
-    border-radius:2em 2em 0 0 ;
-    width:20vw;
-    object-fit: cover;
-    height: 15em;
+.owl-carousel .owl-stage {
+    transition: transform 0.8s ease; /* Плавна зміна трансформацій (переміщення слайдів) */
   }
-
-
-    //.text-center {
-  //  text-align: center;
-  //}
-
-  .mb-4 {
-    margin-bottom: 1.5rem;
-  }
-
-  ///* Секції */
-  //.section {
-  //  display: none; /* Приховуємо всі секції за замовчуванням */
-  //}
-  //
-  //.section.active {
-  //  display: block; /* Показуємо тільки активну секцію */
-  //}
-
-}
