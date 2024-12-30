@@ -23,8 +23,9 @@ body {
 .rec {
   @include mixins.font-montserrat-bold;
   text-align: center;
-  margin: 0;
+  margin: 0 ;
   padding: 5vw 0 0 0;
+
 }
 
 .place {
@@ -65,8 +66,12 @@ body {
     font-weight: bold;
   }
 
-  p {
+  .description {
     margin: 5px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 
   .icon {
@@ -85,22 +90,23 @@ body {
   }
 }
 
-.like-icon {
+.like-icon svg{
+  width: 3.5vw;
+  height: 3.5vw;
   position: absolute;
   bottom: 5vw;
   right: 0;
   margin: 1vw;
   z-index: 200;
   cursor: pointer;
-  backdrop-filter: blur(0.1vw);
+  backdrop-filter: blur(0.09vw);
+}
+.like-icon svg path:nth-of-type(2) {
+  transition: fill 0.3s ease;
 }
 
-.like-icon path:nth-of-type(3) {
-  transition: fill 0.3s ease; /* Плавний перехід кольору */
-}
-
-.like-icon:hover path:nth-of-type(3) {
-  fill: #ffffff; /* Зміна кольору на білий для сердечка */
+.like-icon svg:hover path:nth-of-type(2) {
+  fill: rgba(255, 255, 255, 1);
 }
 
 //left column with selected options
@@ -118,8 +124,8 @@ body {
 }
 
 .selected {
-  //margin: 1.5vw;
-  padding: 1vw 0 0 2vw;
+  margin: 0 0 0 1.5vw;
+  padding: 1vw 0 0 0.5vw;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(0.5vw);
   z-index: 1000;
