@@ -1,4 +1,4 @@
-const locationQuestions = [
+const placeQuestions = [
     {
         question: "В якому районі Львова хочете відвідати заклад?",
         possibleAnswers: ["Центр міста", "Шевченківський", "Личаківський", "Сихівський", "Франківський", "Залізничний"],
@@ -46,7 +46,7 @@ const locationQuestions = [
     },
 ];
 
-const placeQuestions = [
+const locationQuestions = [
     {
         question: "В якому районі Львова хочете відвідати локацію?",
         possibleAnswers: ["Центр міста", "Шевченківський", "Личаківський", "Сихівський", "Франківський", "Залізничний"],
