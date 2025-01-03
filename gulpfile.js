@@ -10,11 +10,14 @@ const gulp = require("gulp");
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('autoprefixer');
 const flatten = require('gulp-flatten');
-
+const newer = require('gulp-newer');
 
 // Minify SCSS
 gulp.task('minify-scss', () => {
     return src('app/scss/*.scss')
+        .pipe(newer({
+            dest: 'dist/css',
+            ext: '.min.css'}))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([cssnano(), autoprefixer()]))
         .pipe(rename({suffix: '.min'}))
@@ -24,6 +27,9 @@ gulp.task('minify-scss', () => {
 // Minify CSS
 gulp.task('minify-css', () => {
     return src('app/css/*')
+        .pipe(newer({
+            dest: 'dist/css',
+            ext: '.min.css'}))
         .pipe(postcss([cssnano(), autoprefixer()]))
         .pipe(rename({suffix: '.min'}))
         .pipe(dest('dist/css'))
@@ -35,6 +41,9 @@ gulp.task('sass', gulp.series('minify-css','minify-scss'));
 // Minify JS
 gulp.task('uglify', () => {
     return src('app/js/**/*.js')
+        .pipe(newer({
+            dest: 'dist/js',
+            ext: '.min.js'}))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(dest('dist/js'))
@@ -62,6 +71,7 @@ gulp.task('html', () => {
 // Compress images
 gulp.task('images', () => {
     return src('app/images/**/*',{encoding:false})
+        .pipe(newer('dist/images'))
         .pipe(imagemin())
         .pipe(dest('dist/images'));
 });
@@ -69,6 +79,7 @@ gulp.task('images', () => {
 // Compress icons
 gulp.task('icons', () => {
     return src('app/icons/**/*',{encoding:false})
+        .pipe(newer('dist/icons'))
         .pipe(imagemin())
         .pipe(dest('dist/icons'));
 });
