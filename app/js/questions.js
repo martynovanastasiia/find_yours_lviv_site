@@ -225,10 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 } else if (question.question.includes("пет-френдлі")) {
                     params.pet_friendly = answers[1]?.answer || answers[0]?.answer;
-                    // params.pet_friendly = answers[0].answer;
-                    // params.pet_friendly = answers[1].answer;
-                    // params.pet_friendly = answers[0]?.answer || "";
-                    // params.pet_friendly = a.answer;
                 } else if (question.question.includes("бюджет")) {
                     params.budgets_to_sort = answers.map(a => a.answer);
                 } else if (question.question.includes("метою")) {
