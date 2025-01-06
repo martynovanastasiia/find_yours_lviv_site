@@ -48,7 +48,7 @@ function displayRecommendations(recommendations, type) {
     recommendations.forEach((recommendation) => {
 
         const card = document.createElement("div");
-        card.className = 'place button';
+        card.className = 'place';
 
         const row = document.createElement("div");
         row.className = 'row p-0';
@@ -80,11 +80,12 @@ function displayRecommendations(recommendations, type) {
         content.className = 'card-content';
 
         const name = document.createElement("h2");
+        name.className = 'button';
         name.innerHTML = recommendation.place_name;
         content.appendChild(name);
 
         if (type === "place") {
-            card.id = recommendation.loc_id;
+            name.id = recommendation.loc_id;
 
             const cuisine = document.createElement("div");
             cuisine.className = 'icon';
@@ -105,7 +106,7 @@ function displayRecommendations(recommendations, type) {
             cuisine.appendChild(cuisine_name);
             content.appendChild(cuisine);
         } else {
-            card.id = recommendation.place_id;
+            name.id = recommendation.place_id;
             const district = document.createElement("div");
             district.className = 'icon';
 
@@ -252,7 +253,7 @@ function displayBudgets(params, container) {
 }
 
 $(document).ready(function () {
-    $(".place").click(function () {
+    $(".button").click(function () {
         const id = $(this).attr("id");
         alert(id);
     })
