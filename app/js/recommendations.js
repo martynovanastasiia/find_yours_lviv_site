@@ -74,17 +74,18 @@ function displayRecommendations(recommendations, type) {
         row.appendChild(column1);
 
         const column2 = document.createElement("div");
-        column2.className = 'col-9 col-md-9 col-lg-9 button';
+        column2.className = 'col-9 col-md-9 col-lg-9';
 
         const content = document.createElement("div");
         content.className = 'card-content';
 
         const name = document.createElement("h2");
+        name.className = 'button';
         name.innerHTML = recommendation.place_name;
         content.appendChild(name);
 
         if (type === "place") {
-            column2.id = recommendation.loc_id;
+            name.id = recommendation.loc_id;
 
             const cuisine = document.createElement("div");
             cuisine.className = 'icon';
@@ -105,7 +106,7 @@ function displayRecommendations(recommendations, type) {
             cuisine.appendChild(cuisine_name);
             content.appendChild(cuisine);
         } else {
-            column2.id = recommendation.place_id;
+            name.id = recommendation.place_id;
             const district = document.createElement("div");
             district.className = 'icon';
 
