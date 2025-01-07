@@ -7,7 +7,6 @@ window.addEventListener("scroll", () => {
         const sectionTop = section.offsetTop;
         if (pageYOffset >= sectionTop - 100) {
             current = section.getAttribute("id");
-            console.log(current);
         }
     });
     links.forEach(link => {
