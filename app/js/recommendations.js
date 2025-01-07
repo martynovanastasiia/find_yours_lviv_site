@@ -255,9 +255,60 @@ function displayBudgets(params, container) {
 $(document).ready(function () {
     $(".button").click(function () {
         const id = $(this).attr("id");
-        alert(id);
+
+        let recommendations = sessionStorage.getItem("recommendationsList");
+        recommendations = JSON.parse(recommendations);
+        const type = recommendations[0].message;
+
+        placeOrLocation(type, id);
     })
 })
+
+function placeOrLocation(type, id){
+    let URL = '';
+    if (type === 'place') {
+        URL = `http://localhost:8080/api/places/id/${id}`;
+        getPlace(URL);
+    } else if (type === 'location') {
+        URL = `http://localhost:8080/api/locations/id/${id}`;
+        getLocation(URL);
+    } else {
+        console.error("Невідомий тип сторінки.");
+        return;
+    }
+}
+
+async function getPlace(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('placePage', JSON.stringify(data));
+        window.location.href = 'place.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
+
+async function getLocation(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('locationPage', JSON.stringify(data));
+        window.location.href = 'location.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
 
 const typeNames = {
     1: "Ресторан",
