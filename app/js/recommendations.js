@@ -48,7 +48,7 @@ function displayRecommendations(recommendations, type) {
     recommendations.forEach((recommendation) => {
 
         const card = document.createElement("div");
-        card.className = 'place button';
+        card.className = 'place';
 
         const row = document.createElement("div");
         row.className = 'row p-0';
@@ -80,11 +80,12 @@ function displayRecommendations(recommendations, type) {
         content.className = 'card-content';
 
         const name = document.createElement("h2");
+        name.className = 'button';
         name.innerHTML = recommendation.place_name;
         content.appendChild(name);
 
         if (type === "place") {
-            card.id = recommendation.loc_id;
+            name.id = recommendation.loc_id;
 
             const cuisine = document.createElement("div");
             cuisine.className = 'icon';
@@ -105,7 +106,7 @@ function displayRecommendations(recommendations, type) {
             cuisine.appendChild(cuisine_name);
             content.appendChild(cuisine);
         } else {
-            card.id = recommendation.place_id;
+            name.id = recommendation.place_id;
             const district = document.createElement("div");
             district.className = 'icon';
 
@@ -252,11 +253,62 @@ function displayBudgets(params, container) {
 }
 
 $(document).ready(function () {
-    $(".place").click(function () {
+    $(".button").click(function () {
         const id = $(this).attr("id");
-        alert(id);
+
+        let recommendations = sessionStorage.getItem("recommendationsList");
+        recommendations = JSON.parse(recommendations);
+        const type = recommendations[0].message;
+
+        placeOrLocation(type, id);
     })
 })
+
+function placeOrLocation(type, id){
+    let URL = '';
+    if (type === 'place') {
+        URL = `http://localhost:8080/api/places/id/${id}`;
+        getPlace(URL);
+    } else if (type === 'location') {
+        URL = `http://localhost:8080/api/locations/id/${id}`;
+        getLocation(URL);
+    } else {
+        console.error("Невідомий тип сторінки.");
+        return;
+    }
+}
+
+async function getPlace(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('placePage', JSON.stringify(data));
+        window.location.href = 'place.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
+
+async function getLocation(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('locationPage', JSON.stringify(data));
+        window.location.href = 'location.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
 
 const typeNames = {
     1: "Ресторан",
