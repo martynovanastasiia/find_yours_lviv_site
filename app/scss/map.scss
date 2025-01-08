@@ -25,6 +25,8 @@ body {
 
 .cards {
   padding: 1.5vw 0 0 0;
+  z-index: 1;
+  position: relative;
 
 
   .place-card {
