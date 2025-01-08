@@ -40,7 +40,6 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
-  //object-position: center;
 }
 
 .button {
@@ -140,5 +139,6 @@ body {
 }
 
 #map {
-  height: 450px;
+  height: 35vw;
+  z-index: 0;
 }

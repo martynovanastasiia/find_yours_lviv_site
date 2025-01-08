@@ -16,6 +16,7 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
 $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
         items: 1,

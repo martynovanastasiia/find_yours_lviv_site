@@ -91,8 +91,8 @@ gulp.task('watch', () => {
     gulp.watch('app/js/*.js', gulp.series('uglify'));
     gulp.watch('app/index.html', gulp.series('html'));
     gulp.watch('app/html/**/*.html', gulp.series('html'));
-    gulp.watch('app/images/*', gulp.series('images'));
-    gulp.watch('app/icons/*', gulp.series('icons'));
+    gulp.watch('app/images/**/*', gulp.series('images'));
+    gulp.watch('app/icons/**/*', gulp.series('icons'));
 });
 
 

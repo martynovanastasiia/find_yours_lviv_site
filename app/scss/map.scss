@@ -18,10 +18,9 @@ body {
 
 /* Fixed map background */
 #map {
-  position: fixed;
   height: 42vw;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .cards {
@@ -72,6 +71,27 @@ body {
 
 .ph {
   padding: 0 1vw;
+  z-index: 0;
+}
+
+.leaflet-control-layers-overlays:hover {
+  span {
+    cursor: pointer;
+  }
+}
+
+.leaflet-control-layers-group-name {
+  font-weight: bold;
+  margin-bottom: .2em;
+  margin-left: 3px;
+}
+
+.leaflet-control-layers {
+  background: #4c7839 !important;
+  color: #fff !important;
+  border-radius: .8em !important;
+  padding: 1vw !important;
+  font-size: 0.85rem !important;
 }
 
 .card-content {
