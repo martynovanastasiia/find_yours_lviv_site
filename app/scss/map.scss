@@ -21,6 +21,10 @@ body {
   z-index: 0;
 }
 
+.leaflet-control-layers{
+  margin-top: 1.5vw !important;
+}
+
 .leaflet-control-layers-overlays:hover {
   span {
     cursor: pointer;
@@ -165,4 +169,28 @@ body {
 
 .like-icon svg:hover path:nth-of-type(2) {
   fill: rgba(255, 255, 255, 1);
+}
+
+.button{
+  cursor: pointer;
+}
+
+.button:hover{
+  text-decoration: underline;
+}
+
+.cards-container {
+  position: absolute;
+  right: 0;
+  top: 6.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+  overflow-y: unset;
+  max-height: 42.5vw;
+  margin-right: 0.5vw;
+
+  .cards {
+    margin-right: 1vw !important;
+  }
 }
