@@ -1,6 +1,7 @@
 const map = L.map('map', {
     center: [49.84, 24.03],
-    zoom: 14
+    zoom: 14,
+    zoomControl: false
 });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -118,7 +119,7 @@ async function renderMapData() {
                 title: name,
                 icon: icon,
                 alt: name,
-                shadowPane: item.place_id
+                shadowPane: item.location_id
             });
 
         marker.addTo(markers);
@@ -126,11 +127,6 @@ async function renderMapData() {
     })
 
     map.addLayer(markers);
-
-    $(window).on('resize', () => {
-        const newWidth = $(document).width();
-        dialog.setSize([newWidth * (33 / 100), 150]);
-    })
 
     $(document).ready(function () {
         $('.leaflet-control-layers-group-label').click();
@@ -158,40 +154,42 @@ async function renderMapData() {
     const layerControl = L.control.groupedLayers(null, overlays,
         {
             groupCheckboxes: true,
-            position: 'bottomleft'
+            position: 'topleft'
         })
         .addTo(map);
 
-    const cardWidth = (window.screen.width * (33 / 100)) + 5;
-
-    const dialogOptions = {
-        size: [cardWidth, 200],
-        minSize: [100, 100],
-        maxSize: [10000, 350],
-        anchor: [-20, 20],
-        position: "topright",
-        initOpen: false
-    };
-
-    const dialog = L.control.dialog(dialogOptions)
-        .addTo(map);
-
-    dialog.lock();
-    dialog.showClose();
-
     markers.eachLayer((layer) => {
         layer.on('click', () => {
-            const place_id = layer.options.shadowPane;
-            const place = data.find(place => place.place_id === place_id)
+
+            const location_id = layer.options.shadowPane;
+
+            const elementId = 'contentNode' + `${location_id}`;
+            const isAlreadyShown = $(`#${elementId}`);
+            if (!(isAlreadyShown.length === 0)) {
+                return;
+            }
+
+            const place = data.find(place => place.location_id === location_id);
+
+            createCard();
             formPlaceContent(place);
-            dialog.open();
+
+            const dialogChanged = new Event('dialogChanged');
+            document.dispatchEvent(dialogChanged);
+
+            $(".button").click(function () {
+                const type = $(this).attr("class").split(" ")[1];
+                const id = $(this).attr("id");
+
+                placeOrLocation(type, id);
+            })
         })
     })
 }
 
 function formPlaceContent(place) {
     const container = document.getElementById("contentNode");
-    container.innerHTML = '';
+    container.id = container.id + `${place.location_id}`;
     const column1 = document.createElement("div");
     column1.className = "col-6 ph position-relativer";
 
@@ -218,7 +216,12 @@ function formPlaceContent(place) {
     card_content.className = "card-content";
 
     const name = document.createElement("h2");
+    name.className = `button ${place.type_id}`;
+    // if(place.type_id > 6){
+    //     name.classList.add(`${place.place_id}`);
+    // }
     name.innerText = place.name;
+    name.id = place.location_id;
     card_content.appendChild(name);
 
     const icon = document.createElement("div");
@@ -290,5 +293,94 @@ const typeIcons = {
     11: "../../icons/map/cinema.svg",
     12: "../../icons/map/church.svg",
     13: "../../icons/map/museum.svg",
-    14: "Інше"
+    14: "../../icons/map/other.svg"
 };
+
+function placeOrLocation(type, id){
+    let URL = '';
+    if (type <= 6) {
+        URL = `http://localhost:8080/api/places/id/${id}`;
+        getPlace(URL);
+    } else if (type > 6) {
+        URL = `http://localhost:8080/api/locations/id/${id}`;
+        getLocation(URL);
+    }
+}
+
+async function getPlace(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('placePage', JSON.stringify(data));
+        window.location.href = 'place.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
+
+async function getLocation(URL){
+    try {
+        const res = await fetch(URL);
+
+        if (!res.ok) {
+            throw new Error('Response isn`t ok');
+        }
+
+        const data = await res.json();
+        sessionStorage.setItem('locationPage', JSON.stringify(data));
+        window.location.href = 'location.html';
+    } catch (error) {
+        console.error('Error while fetching map data:', error);
+    }
+}
+
+document.addEventListener('dialogChanged', () => {
+    const cardContainer = document.getElementById("cards-container");
+    const cards = cardContainer.querySelectorAll(".cards");
+    if (cards.length > 2) {
+        cardContainer.style.overflowY = "auto";
+        cardContainer.style.overflowX = "hidden";
+    } else {
+        cardContainer.style.overflowY = "unset";
+        cardContainer.style.overflowX = "";
+    }
+})
+
+function createCard() {
+    const card_container = document.getElementById("cards-container");
+    const cards = document.createElement('div');
+    cards.className = 'cards';
+    cards.style.width = '511.88px';
+    cards.style.height = '200px';
+
+    const place_card = document.createElement('div');
+    place_card.className = 'place-card';
+
+    const close_button = document.createElement('div');
+    close_button.className = 'close-button';
+
+    const close_icon = document.createElement('img');
+    close_icon.src='../../icons/cross.svg';
+    close_icon.alt = 'close-button';
+
+    close_button.appendChild(close_icon);
+    place_card.appendChild(close_button);
+
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.id = 'contentNode';
+    place_card.appendChild(row);
+    cards.appendChild(place_card);
+    card_container.appendChild(cards);
+
+    close_button.addEventListener('click', () => {
+        const dialogChanged = new Event('dialogChanged');
+        cards.remove();
+        document.dispatchEvent(dialogChanged);
+    });
+}
