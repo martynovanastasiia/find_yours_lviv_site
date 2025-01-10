@@ -155,6 +155,16 @@ $green-main: #4c7839;
   }
 }
 
+.link{
+  span{
+    display: inline-block;
+    width: 17vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
 #map {
   height: 35vw;
   z-index: 0;
