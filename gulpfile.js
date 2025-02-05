@@ -11,6 +11,7 @@ const imagemin = require('gulp-imagemin');
 const autoprefixer = require('autoprefixer');
 const flatten = require('gulp-flatten');
 const newer = require('gulp-newer');
+const nodemon = require("nodemon");
 
 // Minify SCSS
 gulp.task('minify-scss', () => {
@@ -48,7 +49,6 @@ gulp.task('uglify', () => {
         .pipe(uglify())
         .pipe(dest('dist/js'))
 });
-
 
 // Include html files together
 gulp.task('html', () => {
@@ -95,12 +95,11 @@ gulp.task('watch', () => {
     gulp.watch('app/icons/**/*', gulp.series('icons'));
 });
 
-
 // Update browser
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: './dist',
+            baseDir: './dist'
         }
     });
     gulp.watch('./dist').on('change', browserSync.reload);
