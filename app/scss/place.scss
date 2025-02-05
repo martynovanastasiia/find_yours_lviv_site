@@ -1,0 +1,171 @@
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: 3px;
+}
+
+@mixin font-dela {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+}
+
+$green-main: #4c7839;
+
+.row {
+  margin: 0 !important;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  padding: 6vw 0;
+  overflow-x: hidden;
+}
+
+.bottom-line{
+  background-image: url("../icons/bottom-line.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  background-position:  top 60vh center;
+}
+
+.photo-rest {
+  margin: 0;
+  padding: 0;
+  height: 60vh;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 5vw;
+    object-fit: cover; /* обрізає зображення, щоб воно заповнювало контейнер */
+
+  }
+}
+
+.name-rest {
+  margin-top: 18vh;
+
+  h1 {
+    @include font-montserrat-bold;
+  }
+
+  h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: 1vw;
+  }
+}
+
+.place {
+  font-size: 1.7vw;
+}
+
+
+.find-more {
+  img{
+    width: 100%;
+    margin: 7vh 0 3vh;
+  }
+}
+
+.icons {
+  width: 4.5vw;
+}
+
+.g-5 {
+  justify-content: center;
+  gap: 16vw;
+}
+
+.rect {
+  text-align: center;
+  padding: 2vw 0 0;
+  border: 0.2vw solid $green-main;
+  border-radius: 2.5vw;
+  width: 16vw !important;
+  height: 18vw !important;
+}
+
+.rect-full {
+  @extend .rect;
+  background: rgba(76, 120, 57, 0.42);
+}
+
+.info-rest {
+  font-family: "Montserrat", sans-serif;
+  color: black;
+
+  a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5vw;
+    color: black;
+    text-decoration: none;
+    word-wrap: break-word; /*переносить на інший рядок як текст задовгий для контейнера*/
+    overflow-wrap: break-word; /* забезпечує сумісність з більш старими браузерами якшо функція вище не спрацювала :)*/
+  }
+
+  h4 {
+    margin-top: 0.5vw;
+    font-weight: 700;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+
+  }
+
+  p {
+    margin-top: 1.7vw;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 1.3vw;
+  }
+
+}
+
+.rest-description {
+  margin-top: 13vh;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.5vw;
+  line-height: 3vw;
+  text-align: justify;
+  color: black;
+}
+
+.rest-contact {
+  margin: 3% 0;
+  color: black;
+
+  a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5vw;
+    color: black;
+    text-decoration: none;
+    word-wrap: break-word; /*переносить на інший рядок як текст задовгий для контейнера*/
+    overflow-wrap: break-word; /* забезпечує сумісність з більш старими браузерами якшо функція вище не спрацювала :)*/
+  }
+
+  .connect-1 {
+    @include font-dela;
+    font-size: 1.8vw;
+    margin-bottom: 3vh;
+    text-transform: uppercase;
+  }
+}
+
+.link{
+  span{
+    display: inline-block;
+    width: 17vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+#map {
+  height: 35vw;
+  z-index: 0;
+}

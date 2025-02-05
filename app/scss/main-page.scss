@@ -1,0 +1,272 @@
+@use "mixins";
+
+.container-fluid {
+  margin: 0 auto;
+  padding: 7vw 0 0 0;
+  overflow-x: hidden;
+}
+
+.main-page {
+  .left-part-main {
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+
+    .slogan {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: 3vw;
+      line-height: 125%;
+      letter-spacing: 0.125em;
+      color: #000;
+      margin: 0 0 2vw;
+    }
+  }
+
+  .main-button {
+
+    a {
+      h3 {
+        font-weight: 400;
+        font-size: 2vw;
+        color: #ffffff;
+
+      }
+
+      h5 {
+        font-weight: 400;
+        font-size: 1.2vw;
+        color: #ffffff;
+      }
+
+      padding: 1vw 1.5vw 1vw 0;
+      font-family: "Montserrat", sans-serif;
+      text-decoration: none;
+      letter-spacing: 0.2em;
+      text-align: center;
+      color: black;
+    }
+
+    .main-titles {
+      width: 16vw;
+      border-radius: 0.8em;
+      background-color: #4c7839;
+      box-shadow: 0 10px 17px 0 #33442c;
+      margin: 0;
+      padding: 1vw;
+      position: relative;
+      z-index: 1;
+      align-content: center;
+
+    }
+
+    .main-description {
+
+      padding: 4vw 1vw 1vw;
+      border-radius: 2vw;
+      height: 30vh;
+      // width: auto;
+      text-align: center;
+      align-content: center;
+
+      box-shadow: inset 0 10px 17px 0 #465f3c;
+      background: rgba(76, 120, 57, 0.8);
+      margin-top: -3vw; /*  щоб блок "зайшов" під .main-titles */
+      position: relative;
+      z-index: 0;
+    }
+  }
+
+  .opera {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+
+
+    img {
+      padding-top: 5%;
+      width: 70%;
+      height: 85%;
+
+    }
+  }
+}
+
+.top {
+  img {
+    width: 100%;
+    margin-left: -0.5vw;
+  }
+}
+
+.about-us {
+  margin-top: 13vh;
+  margin-right: 1vw;
+  //margin-left: 2vw;
+  //display: flex;
+
+  img {
+    width: 60vw;
+    height: auto;
+    float: left;
+    shape-outside: url("../icons/main-page/lviv-map.png");
+    shape-margin: 1vw;
+  }
+
+  .item {
+    margin: 0 5vw;
+  }
+
+  h2 {
+    font-size: 3.1vw;
+    padding: 0 0 2vw 4vw;
+    color: black;
+    font-weight: 600;
+    font-family: "Dela Gothic One", sans-serif;
+  }
+  p {
+    padding: 2vw 0 0 0;
+    font-size: 1.45vw;
+    letter-spacing: 0.25em;
+    line-height: 2.5em;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+}
+.user-rec{
+  padding: 0 0 5vw 0;
+  .repeating-text {
+    display: flex;
+    width: 100%;
+    font-size: 3.5vw;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.35vw;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .outline-green{
+    -webkit-text-stroke: 0.01vw #4C7839;
+    color: #ffffff;
+  }
+
+  .outline-black{
+    -webkit-text-stroke: 0.01vw #000000;
+    color: #ffffff;
+  }
+
+  .filled-black{
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .filled-green{
+    font-weight: bold;
+    color: #4C7839;
+  }
+}
+
+.recommended {
+  .item {
+    h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: 3em;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.2em;
+      color: #000;
+    }
+
+    .people-recom {
+      display: flex !important;
+    }
+
+    .card-body {
+      padding: 1vw;
+      background-color: #4C7839;
+      width: 20vw;
+      border-radius: 0 0 2em 2em;
+
+      .small-icon {
+        align-items: center;
+        display: flex;
+        margin-bottom: 0.3em;
+
+        img {
+          border-radius: 0;
+          width: 0.7em;
+          height: 0.7em;
+        }
+      }
+
+      .card-title {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
+        color: #fff;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .card-text {
+        margin: 0 0 0 0.5em;
+        font-weight: 400;
+        font-size: 0.7em;
+        -webkit-line-clamp: 1;
+        letter-spacing: 0.2em;
+        color: #fff;
+      }
+    }
+
+    .p-r {
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      border-radius: 2em 2em 0 0;
+      width: 20vw;
+      object-fit: cover;
+      height: 15em;
+    }
+
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .arrow-button {
+    margin-top: 5vh;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .left-arrow {
+    left: 2.5vw;
+  }
+
+  .right-arrow {
+    right: 2.5vw;
+  }
+
+}
+
+.owl-carousel .owl-stage {
+  transition: transform 0.8s ease; /* Плавна зміна трансформацій (переміщення слайдів) */
+}
+
+
+//Марія дописала
+.item {
+  margin: 0 5vw;
+}

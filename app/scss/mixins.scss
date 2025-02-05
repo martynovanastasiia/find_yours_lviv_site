@@ -1,0 +1,44 @@
+@mixin font-montserrat-bold {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: 0.2vw;
+}
+@mixin font-montserrat-alternates-regular {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 500;
+  font-size: 3vw;
+  letter-spacing: 0.2vw;
+}
+
+@mixin font-montserrat-regular {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5vw;
+  letter-spacing: 0.02vw;
+  color: #000;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin font-montserrat-medium {
+  font-family: Montserrat, sans-serif;
+  font-size: 2vw;
+  letter-spacing: 0.02vw;
+  color: #333E2E;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+@mixin font-montserrat-small {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 1vw;
+  letter-spacing: 0.02vw;
+}
+
+@mixin font-dela-medium {
+  font-family: Dela Gothic One, sans-serif;
+  font-weight: 400;
+  font-size: 3vw;
+  letter-spacing: 0.2vw;
+}
