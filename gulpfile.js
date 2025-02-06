@@ -11,7 +11,6 @@ const imagemin = require('gulp-imagemin');
 const autoprefixer = require('autoprefixer');
 const flatten = require('gulp-flatten');
 const newer = require('gulp-newer');
-const nodemon = require("nodemon");
 
 // Minify SCSS
 gulp.task('minify-scss', () => {

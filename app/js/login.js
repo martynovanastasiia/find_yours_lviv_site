@@ -37,6 +37,7 @@ async function updateLoginState() {
             button.innerText = 'Увійти';
         } else {
             button.remove();
+            googleAuth();
             registerValidation();
             loginValidation();
         }
@@ -192,4 +193,11 @@ function registerValidation() {
             error.style.display = 'block';
         }
     });
+}
+
+function googleAuth(){
+    const button = document.getElementById('googleLogin');
+    button.addEventListener('click',()=>{
+        window.location.assign('http://localhost:8080/api/auth/google');
+    })
 }
