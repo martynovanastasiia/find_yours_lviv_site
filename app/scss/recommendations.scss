@@ -1,0 +1,160 @@
+@use "mixins";
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.container-fluid {
+  padding: 7vw 0;
+  margin: 0;
+  background-image: url("../icons/blured-lines.svg");
+  background-repeat: no-repeat;
+  background-position: top 4vw center;
+  background-attachment: fixed;
+  background-size: 110% auto;
+  width: 100%;
+}
+
+.rec {
+  @include mixins.font-montserrat-bold;
+  text-align: center;
+  margin: 0 ;
+  padding: 5vw 0 0 0;
+
+}
+
+.card {
+  margin: 3vw 0;
+  display: flex;
+  background-color: #f8f8f8;
+  border-radius: 3vw;
+  border: black 0.1vw solid;
+  height: 15vw;
+  overflow: hidden;
+
+  .col-3 .photo {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    padding: 0;
+  }
+
+  .col-9 {
+    padding: 0 1vw;
+  }
+
+  .col-3 {
+    padding: 0;
+  }
+}
+
+.card-content {
+  padding: 0.7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include mixins.font-montserrat-small;
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 1.5vw;
+    font-weight: bold;
+  }
+
+  .description {
+    margin: 5px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    margin: 0.2vw;
+
+    img {
+      width: 1.5vw;
+    }
+
+    span {
+      margin-left: 1vw;
+      font-weight: 600;
+    }
+  }
+}
+
+.like-icon svg{
+  width: 3.5vw;
+  height: 3.5vw;
+  position: absolute;
+  bottom: 5vw;
+  right: 0;
+  margin: 1vw;
+  z-index: 200;
+  cursor: pointer;
+  backdrop-filter: blur(0.09vw);
+}
+.like-icon svg path:nth-of-type(2) {
+  transition: fill 0.3s ease;
+}
+
+.like-icon svg:hover path:nth-of-type(2) {
+  fill: rgba(255, 255, 255, 1);
+}
+
+//left column with selected options
+
+.option {
+  @include mixins.font-montserrat-medium;
+  font-size: 1.2vw;
+  background-color: #B4C6AC;
+  border-radius: 1.5vw;
+  padding: 1vw;
+  margin: 1.5vw;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 0 1vw rgb(0, 0, 0, 0.25);
+}
+
+.selected {
+  margin: 0 0 0 1.5vw;
+  padding: 1vw 0 0 0.5vw;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(0.5vw);
+  z-index: 1000;
+  border-radius: 1vw;
+
+  p {
+    @include mixins.font-montserrat-medium;
+    font-size: 1.2vw;
+    padding: 0.6vw;
+    margin: 0;
+  }
+}
+
+.random {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.random:hover {
+  background-color: #4c7839;
+  color: #fff;
+}
+
+.button{
+  cursor: pointer;
+}
+
+.button:hover{
+  text-decoration: underline;
+}

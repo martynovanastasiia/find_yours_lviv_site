@@ -1,29 +1,17 @@
-<!--header-->
 <div class="container-fluid">
     <!-- секція з фотографією лініями і назвою закладу-->
     <section>
         <div class="top-line">
-
             <div class="row">
-                <div class="col-4 photo-rest"> <!-- фотографія закладу-->
-                    <img src=" https://i.imgur.com/WgUFwwl.jpg" alt="Фото з закладу">
-                </div>
-                <div class="col-1 "></div>
-                <!-- назва локації та закладу-->
-                <div class="col-7 name-rest">
-                    <h1>Перша львівська грильова ресторація м'яса та справедливости</h1>
-                    <h5 class="place">Центр міста</h5></div>
+                <div class="col-4 photo-rest" id="main_photo"></div>
+                <div class="col-1"></div>
+                <div class="col-7 name-rest" id="n&d"></div>
                 <!--тут ше має бути кнопка але я хз як її реалізувати (саме шоб воно якось заносилось в базу)-->
             </div>
-            <!--ну оцей текст під питанням, потрібно ще подумати як адаптивніше це зробити       -->
             <div class="find-more">
-                <!--                <h3 class="text-outline">БІЛЬШЕ ПРО ЗАКЛАД<span class="text-fill" style="color: black"> ДІЗНАЙСЯ БІЛЬШЕ ПРО ЗАКЛАД </span>ДІЗНАЙСЯ-->
-                <!--                    БІЛЬШЕ ПРО ЗАК</h3>-->
                 <img src="../../icons/find-more.jpg" alt="">
             </div>
         </div>
-
-
     </section>
     <!--секція з інформацією про заклад в 6-ти прямокутниках  -->
     <section>
@@ -35,40 +23,33 @@
                     </div>
                     <div class="info-rest">
                         <h4>Тип закладу</h4>
-                        <p>Стейк-хаус</p>
+                        <p id="place-type"></p>
                     </div>
                 </div>
-
             </div>
             <div class="rect col-12 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-
                 <div>
                     <div class="icon">
                         <img src="../../icons/place/pet.svg" class="icons" alt="pet">
                     </div>
                     <div class="info-rest">
                         <h4> Пет-френдлі?</h4>
-                        <p>Так</p>
+                        <p id="pet-friendly"></p>
                     </div>
                 </div>
-
-
             </div>
             <div class="rect-full col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                 <div>
-                    <div class="">
+                    <div class="icon">
                         <img src="../../icons/place/clock-1.svg" class="icons" alt="clock">
                     </div>
                     <div class="info-rest">
                         <h4 class="time">години роботи</h4>
-                        <p>пн. – пт. 12:00 – 22:30 <br>
-
-                            сб. – нд. 11:00 – 22:30</p>
+                        <p id="working-time"></p>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Другий рядок -->
         <div class="row g-5">
             <div class="rect col-12 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
@@ -78,7 +59,7 @@
                     </div>
                     <div class="info-rest">
                         <h4>Кухня</h4>
-                        <p>американська</p>
+                        <p id="cuisine"></p>
                     </div>
                 </div>
             </div>
@@ -89,18 +70,18 @@
                     </div>
                     <div class="info-rest">
                         <h4>Бюджет</h4>
-                        <p>Середній</p>
+                        <p id="budget"></p>
                     </div>
                 </div>
             </div>
             <div class="rect col-12 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                 <div>
                     <div class="icon">
-                        <img src="../../icons/geo-alt-fill.svg" class="icons" alt="geo">
+                        <img src="../../icons/place/geo-alt-fill.svg" class="icons" alt="geolocation">
                     </div>
                     <div class="info-rest">
                         <h4>локація</h4>
-                        <p>вул. валова 20</p>
+                        <a id="address" href="" target="_blank"></a>
                     </div>
                 </div>
             </div>
@@ -109,46 +90,30 @@
     <div class="bottom-line">
         <!--  опис закладу i зв'язок  -->
         <section>
-            <!--            id="about-us"-->
             <div class="row">
                 <div class="col-12 mx-auto col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
-                    <h6 class="rest-description">Перша львівська грильова ресторація м'яса та справедливости —
-                        унікальний заклад, що спеціалізується на приготуванні страв на грилі
-                        та пропонує вишукані м’ясні делікатеси. Меню ресторану включає різноманітні
-                        види м'яса, приготованого на відкритому вогні, а також смачні гарніри та закуски. Інтер'єр
-                        оформлений у стильному дизайні, що створює особливо загадкову атмосферу для відвідувачів. Заклад
-                        також відомий своєю концепцією «справедливості»: кат та різні пам'ятки тортур не на жарт
-                        здивують
-                        вас. Це місце ідеально підходить для м'ясоїдів,
-                        які цінують смачну їжу та незабутню атмосферу.
-                    </h6>
+                    <h6 class="rest-description"></h6>
                 </div>
                 <div class="row">
                     <div class="rest-contact p-0 mx-auto d-flex col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10"
                          style="justify-content: space-between">
                         <div class="col-5 connect">
                             <h5 class="connect-1">Зв’язок із закладом</h5>
-                            <a href="tel:(050) 43 02 826">(050) 43 02 826</a>
+                            <a href=""></a>
                         </div>
-                        <div class="col-6 connect text-end">
+                        <div class="col-6 connect text-end link">
                             <h5 class="connect-1">Детальніше про заклад</h5>
-                            <a class="text-end" href="https://www.fest.lviv.ua/uk/restaurants/meatandjustice/"
-                               target="_blank">www.fest.lviv.ua/uk/restaurants/meatandjustice/ </a>
+                            <span>
+                                <a class="text-end test" href="" target="_blank"></a>
+                            </span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section>
         <!--фото закладу з проскролом(якщо буде більше ніж три фотографії)-->
-        <section class="">
+        <section>
             <div class="scroller">
-                <img src="https://i.imgur.com/99lErx8.jpg" alt="Фото закладу">
-                <img src="https://i.imgur.com/YSgtXpv.jpg" alt="Фото закладу">
-                <img src="https://i.imgur.com/WgUFwwl.jpg" alt="Фото закладу">
-                <img src="https://i.imgur.com/9XLqFnD.jpg" alt="Фото закладу">
-
             </div>
             <div class="arrows">
                 <div class="arrow-button left-arrow">
@@ -165,14 +130,9 @@
                 </div>
             </div>
         </section>
-
         <section>
-            <div class="map">
-                <img src="../../images/map.png" alt="map">
-
+            <div id="map">
             </div>
         </section>
     </div>
-    <!--    <footer>-->
-
 </div>

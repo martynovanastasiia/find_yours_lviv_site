@@ -3,19 +3,19 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Відключає прокрутку на всій сторінці */
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
 }
 
 .container-fluid {
-  padding: 6vw 0;
+  padding: 5.6vw 0;
   margin: 0;
   background-image: url("../icons/long-line.svg");
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
-  background-position: top 66vw center;
+  background-position: top 50vw center;
   width: 100%;
 }
 
@@ -26,9 +26,10 @@ body {
 
 .clipped {
   width: 100%;
-  //height: auto;
+  height: 30vw;
   -webkit-clip-path: url(#my-clip-path);
-  //clip-path: url(#my-clip-path);
+  clip-path: url(#my-clip-path);
+  overflow: hidden;
 }
 
 .row {
@@ -37,13 +38,12 @@ body {
 
 .responsive-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  //object-position: center;
 }
 
 .button {
-  top: 51vw;
+  top: 32vw;
   right: 0.25vw;
   display: inline-flex;
   align-items: center;
@@ -67,6 +67,7 @@ body {
 
   .icon {
     font-size: 1.2vw;
+    fill: none;
   }
 
   img {
@@ -77,15 +78,20 @@ body {
 
 .button:hover {
   background-color: #1f3017;
+
+  .icon path {
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+  }
 }
 
 .header1 {
   text-align: center;
+  //height: 10vw;
 
   h1 {
     @include mixins.font-montserrat-bold;
-    margin: 0;
-    padding: 2vw 0;
+    margin: 2vw 15vw;
   }
 }
 
@@ -102,6 +108,12 @@ body {
   display: flex;
   align-items: center;
   gap: 1vw;
+  max-width: 26vw;
+}
+.info-item span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .info-item img {
@@ -120,11 +132,14 @@ body {
 
 .description p {
   @include mixins.font-montserrat-regular;
-  margin: 3vw 5vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2vw;
+  margin: 2vw 4vw;
   text-align: justify;
-  padding: 0;
+  padding: 1vw;
 }
 
-.map {
-  margin: 4vw 0;
+#map {
+  height: 35vw;
+  z-index: 0;
 }
